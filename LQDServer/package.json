@@ -1,0 +1,22 @@
+{
+  "name": "lqdserver",
+  "version": "1.0.0",
+  "description": "Server for Liquid that sends the client information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lqdserver"
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/RamonMamon/Liquid-Website"
+  },
+  "author": "Ramon Catane",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ws": "^5.1.1"
+  }
+}
