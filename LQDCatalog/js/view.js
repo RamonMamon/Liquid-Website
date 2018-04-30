@@ -1,33 +1,47 @@
-﻿// When the user scrolls the page, execute myFunction 
-window.onscroll = function () { myFunction() };
+﻿var offset;
+var navbar;
 
-// Get the navbar
-var navbar = $("#navbar");
-
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
+/**
+ * When the user scrolls the page past the navbars offset, the navbar will
+ * stick to the top of the screen.
+ */
+window.onscroll = function () { 
+    if ($(document).scrollTop() >= offset.top) {
+        navbar.addClass("sticky")
     } else {
-        navbar.classList.remove("sticky");
-    }
+        navbar.removeClass("sticky");
+    } 
+};
+
+
+function initializeView(){
+    navbar = $("#navbar");
+    offset = navbar.offset(); //Gets the current position of the navbar. 
+    
 }
 
-function setup(){
+function moveToAbout(){
+    //Scrolls the page down to the about section.
+    var targetOffset = $("#about").offset().top - 40;
+    console.log(targetOffset);
+    $('html,body').animate({scrollTop: targetOffset}, 1000); 
+}
+
+function moveToProducts(){
+    //Scrolls down page to the products section.
+    var targetOffset = $("#products").offset().top - 40;
+    $('html,body').animate({scrollTop: targetOffset}, 1000); 
     
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("content").style.marginLeft = "250px";
+    $("#mySidenav").width("250px");
+    $("#content").css("margin-left") = "250px";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("content").style.marginLeft = "0";
+    $("#mySidenav").width("0px");
+    $("#content").css("margin-left") = "0";
 }

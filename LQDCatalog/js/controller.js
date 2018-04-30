@@ -9,7 +9,18 @@
  */
 var controller = (function(){
     function init(){
+        initializeView();
+        initializeNavBarButtons();
     }return {
         init: init
     }
 })()
+
+function initializeNavBarButtons(){
+    $("#aboutNav").click(function(){ 
+        moveToAbout();
+    });
+    $("#productsNav").click(function(){ 
+        moveToProducts();
+    });
+}
