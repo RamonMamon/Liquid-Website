@@ -13,11 +13,9 @@ window.onscroll = function () {
     } 
 };
 
-
 function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Gets the current position of the navbar. 
-    
 }
 
 function moveToAbout(){
@@ -45,3 +43,14 @@ function closeNav() {
     $("#mySidenav").width("0px");
     $("#content").css("margin-left") = "0";
 }
+
+/**
+ * PRODUCTS FUNCTIONALITY
+ */
+
+/*
+Takes a product list and prints it on the products section of the page.
+*/
+ function viewProducts(productList){
+
+ }

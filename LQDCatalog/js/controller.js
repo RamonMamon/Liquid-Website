@@ -24,3 +24,7 @@ function initializeNavBarButtons(){
         moveToProducts();
     });
 }
+
+function sendProductsToView(){
+    viewProducts(retrieveProducts());
+}
