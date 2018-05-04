@@ -21,7 +21,6 @@ function initializeView(){
 function moveToAbout(){
     //Scrolls the page down to the about section.
     var targetOffset = $("#about").offset().top - 40;
-    console.log(targetOffset);
     $('html,body').animate({scrollTop: targetOffset}, 1000); 
 }
 
@@ -29,7 +28,6 @@ function moveToProducts(){
     //Scrolls down page to the products section.
     var targetOffset = $("#products").offset().top - 40;
     $('html,body').animate({scrollTop: targetOffset}, 1000); 
-    
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */

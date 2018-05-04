@@ -1,10 +1,12 @@
-﻿header{
+﻿/*Designs the header and adds the background gif.*/
+#lqdHeader{
     background-color: rgb(0, 0, 0);
-    background-image: url("../images/Smoke/thick.jpg");
+    background-image: url("../images/Smoke/background.gif");
     background-attachment: absolute;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover, auto;
+    position: relative;
 }
 
 .header-images{
@@ -17,45 +19,20 @@
 }
 
 .lqd-Header-Logo{
-    /*Work on the parallax effect a bit more.*/
-    min-height: 700px; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-size: 50%;
+    background-size: 50%, auto;
     background-image: url("../images/PNG (transp) files/lqd-blue2-transp.png");
     background-position-x: center; 
     background-position-y: top;
-}
-
-
-.parallax-background-smoke {
-    /*Fix the smoke leaking over and into the navbar section.*/
-    background-image: url("../images/Smoke/transparent.png");
-    -webkit-transform: translateZ(-300px) scale(1.1);
-    transform: translateZ(-300px) scale(1.1);
-    z-index: 3;
+    padding-bottom: 45%;
+    position: relative;
 }
 
 body{
-    background-attachment: fixed;
-    background-color: rgb(255, 255, 255);
-}
-
-.content{
-    background-color: rgba(110, 107, 107, 0.3);
-    padding: 30px 40px;
-    /* color: rgb(0, 0, 0); */
-    text-align: center;
-}
-
-/* Style the navbar */
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-  /* position: absolute; */
-  /* opacity: 50%; */
+    background-attachment: fixed; 
+    background-color: rgb(0, 0, 0);
 }
 
 /* Navbar links */
@@ -68,23 +45,27 @@ body{
     text-decoration: none;
 }
 
+/* Designs the navbar*/
+.navbar {
+    background-color: rgba(51,51,51, 1);
+    overflow: hidden;
+    position: relative;
+ }
 
-/* Page content */
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+/* 
+The sticky class is added to the navbar with JS when it reaches its scroll position 
+and makes the navbar slightly transparent.
+*/
 .sticky {
-    /* background-color: white; */
-    opacity: 50%;
+    background-color: rgba(51,51,51, 0.7);
     position: fixed;
     top: 0;
-    width: 100%
+    width: 100%;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-/* .sticky + .content {
-  padding-top: 60px;
-} */
-
+/*
+ Page content
+ */
 
 /* The side navigation menu */
 .sidenav {
@@ -94,7 +75,7 @@ body{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: rgb(199, 199, 199); /* light Grey*/
+    background-color: rgb(145, 145, 145); /* light Grey*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -105,7 +86,7 @@ body{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: white;
     display: block;
     transition: 0.3s;
 }
@@ -120,10 +101,16 @@ body{
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-.content {
-    
+.content{
+    /* background-color: rgba(0, 0, 0); */
+    padding: 30px 40px;
+    text-align: center;
 }
 
+/*Sets the colors of the text in .content.*/
+.content h2{
+    color: white;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
