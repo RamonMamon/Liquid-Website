@@ -13,9 +13,16 @@ window.onscroll = function () {
     } 
 };
 
+/*
+Sets a new offset whenever the window is resized.
+*/
+$(window).resize(function(){
+    offset = navbar.offset();
+});
+
 function initializeView(){
     navbar = $("#navbar");
-    offset = navbar.offset(); //Gets the current position of the navbar. 
+    offset = navbar.offset(); //Sets the current position of the navbar. 
 }
 
 function moveToAbout(){

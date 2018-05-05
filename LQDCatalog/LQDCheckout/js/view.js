@@ -13,14 +13,13 @@ window.onscroll = function () {
     } 
 };
 
+window.onload = function(){
+    var targetOffset = $("#userCart").offset().top - 40;
+    $('html,body').animate({scrollTop: targetOffset}, 1000); 
+}
+
 function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Gets the current position of the navbar. 
 }
 
-/**
- * Contains all the interaction between the user and the application.
- */
-background-color: rgba(51,51,51, 1);
-overflow: hidden;
-position: relative;

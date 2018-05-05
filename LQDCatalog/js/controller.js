@@ -14,7 +14,7 @@ var controller = (function(){
     }return {
         init: init
     }
-})()
+})();
 
 function initializeNavBarButtons(){
     $("#aboutNav").click(function(){ 
