@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stay LQD</title>
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/packages/jquery-3.2.1.min.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+    <script src="./js/model.js"></script>
+    <link rel="icon" type="image/png" href="./images/PNG (transp) files/lqd-blue2-transp.png"/>
+    <link href="./css/lqdstyle.css" rel="stylesheet" type="text/css" />
+    
+    </head>
+    <body>
+            <div id = "lqdHeader">
+                    <div id="lqd-Logo" class="lqd-Header-Logo"></div>
+                    <div id="smoke-background" class="header-images parallax-background-smoke"></div>
+            </div>    
+    <div id="navbar" style="overflow:auto;" class="navbar">
+            <a>Return to Catalog</a>
+        </div>
+    <div align="center">
+         <h1 style="color:white">Your Cart</h1>   
+    </div>
+    <div class="Content">
+        <div class="items" id="itemlist">
+
+        </div>
+    <div align="center">
+            <h3 style="color:white">Billing Information</h3>   
+    </div>
+        <div class="billinginformation" align="left">
+                <form action="/action_page.php">
+                    <label for="fname">Name</label>
+                    <input type="text" id="CName" name="CustomerName" placeholder="Your name...">
+                
+                    <label for="email">Email</label>
+                    <input type="text" id="CEmail" name="CustomerEmail" placeholder="Your Email...">
+                
+                    <label for="bankAccount">Bank Account</label>
+                    <input type="text" id="CBankacct" name="CustomerBankAcct" placeholder="Your Bank Account...">
+
+                    <input type="submit" value="Confirm Purchase">
+                  </form>
+        </div>
+    </body>
+</html>
