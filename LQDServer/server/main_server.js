@@ -27,8 +27,6 @@ app.ws('/', function(ws, req) {
     ws.on('message', function(msg) {//TODO
         ws.send(msg+ " from server");
         console.log("client has connected.");
-
-        // handleClientMessage(ws, msg);
     });
     ws.on('connection', function(){
         console.log("Connected");
@@ -51,12 +49,13 @@ app.get('/', function(req, res) {
 
 // Logs any server-side errors to the console and send 500 error code.
 app.use(function (err, req, res) {
-    console.error(err.stack);
+    // TODO: Add a response to the error.
+    console.error("Error: " + err.stack);
     req.status(internalServerError).send('Something broke!');
 });
 
 app.listen(port,function(){
-    console.log('Server running, access the website by going to http://localhost:8080/');
+    console.log('Server running, access the website by going to http://staylqd.com:8080/');
 });
 
 // /**
