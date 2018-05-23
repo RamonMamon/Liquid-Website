@@ -1,23 +1,21 @@
-var csv = require('csv'); 
-// loads the csv module referenced above.
-​
+var csv = require('csv');
 var obj = csv(); 
 // gets the csv module to access the required functionality
 ​
-function MyCSV(Fone, Ftwo, Fthree) {
-    this.FieldOne = Fone;
-    this.FieldTwo = Ftwo;
-    this.FieldThree = Fthree;
+//Product ID, Product Name, Description, Stock.
+function product(productID, productName, description, stock) {
+    this.productID = productID;
+    this.productName = productName;
+    this.description = description;
+    this.stock = stock;
 }; 
 // Define the MyCSV object with parameterized constructor, this will be used for storing the data read from the csv into an array of MyCSV. You will need to define each field as shown above.
 ​
-var MyData = []; 
-// MyData array will contain the data from the CSV file and it will be sent to the clients request over HTTP. 
+var csvData = [];
 ​
-obj.from.path('../THEPATHINYOURPROJECT/TOTHE/csv_FILE_YOU_WANT_TO_LOAD.csv').to.array(function (data) {
+obj.from.path('../Database/stock.csv').to.array(function (data) {
     for (var index = 0; index < data.length; index++) {
-        MyData.push(new MyCSV(data[index][0], data[index][1], data[index][2]));
+        csvData.push(new product(data[index][0], data[index][1], data[index][2], data[index][3]));
     }
-    console.log(MyData);
+    console.log(csvData);
 });
-//Reads the CSV file from the path you specify, and the data is stored in the array we specified using callback function.  This function iterates through an array and each line from the CSV file will be pushed as a record to another array called MyData , and logs the data into the console to ensure it worked.
