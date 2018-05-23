@@ -2,10 +2,11 @@
   "name": "lqdserver",
   "version": "1.0.0",
   "description": "Server for Liquid that sends the client information",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/main_server.js"
   },
+  "main": "./server/main_server.js",
   "keywords": [
     "lqdserver"
   ],

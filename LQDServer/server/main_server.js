@@ -6,7 +6,7 @@ var path = require("path");
 const port = 8080;
 const internalServerError = 500;
 const OK = 200;
-var clientDirectory = path.join(__dirname,'../../LQDCatalog');
+var clientDirectory = path.join(__dirname,'../LQDCatalog');
 
 //These are static directories for the webpage to access.
 app.use(express.static(clientDirectory));
