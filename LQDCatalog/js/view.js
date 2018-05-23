@@ -1,5 +1,6 @@
 ﻿var offset;
 var navbar;
+var slideIndex = 1;
 
 /**
  * When the user scrolls the page past the navbars offset, the navbar will
@@ -23,6 +24,7 @@ $(window).resize(function(){
 function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Sets the current position of the navbar. 
+    showSlides(slideIndex);
 }
 
 function moveToAbout(){
@@ -49,6 +51,28 @@ function closeNav() {
     $("#content").css("margin-left") = "0";
 }
 
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    console.log(slides.length);
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[slideIndex-1].style.display = "block";  
+  }
+
+
+  
 /**
  * PRODUCTS FUNCTIONALITY
  */
@@ -59,3 +83,4 @@ Takes a product list and prints it on the products section of the page.
  function viewProducts(productList){
 
  }
+

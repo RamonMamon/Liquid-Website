@@ -11,21 +11,29 @@
     <script src="./js/model.js"></script>
     <link rel="icon" type="image/png" href="./images/PNG (transp) files/lqd-blue2-transp.png"/>
     <link href="./css/lqdstyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
 </head>
-<body>
 
+
+<body>
 <div id = "lqdHeader">
+    <div id="navbar" style="overflow:auto;" class="navbar">
+        <a href="javascript:void(0)" onclick="openNav()"> <i class="fa fa-shopping-cart"></i> My Cart</a>
+    </div>
+
     <div id="static-smoke" class = "header-images static-smoke"></div>
     <div id="lqd-Logo" class="lqd-Header-Logo"></div>
-    <div id="smoke-background" class="header-images"></div>
-        
+    <div id="smoke-background" class="header-images"></div>     
 </div>
 
-<div id="navbar" style="overflow:auto;" class="navbar">
-    <a href="javascript:void(0)" onclick="openNav()">My Cart</a>
-    <a href="javascript:void(0)" class="about" id = "aboutNav" >About</a>
-    <a href="javascript:void(0)" class="products" id = "productsNav">Products</a>
+<div style="background-color: transparent;">
+        <h2 style="position: absolute; left: 300px; top: 620px; color:#01b2f6;" onclick="moveToAbout()">about</h2>
+        <h2 style="position: absolute; right: 300px; top: 620px; color:#01b2f6;" onclick="moveToProducts()">Products</h2>
+</div>
+
+<div id="marquee">
+        <marquee behavior="scroll" direction="left" style="font-size: 30px; color:#01b2f6;">STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD.</marquee>
 </div>
 
 <div id="mySidenav" class="sidenav">
@@ -38,29 +46,78 @@
         <img src="./images/BLACK BG/About.png">
     </div>
 
-    <div class="content" id="products">
-        <img src="./images/BLACK BG/Products.png">
-    </div>
-
-    <div class= "content" id="BlueRazz">
-        <img src="./images/BLACK BG/blue-razz-blk.jpg" align="left">
+    <div class="content" id="slideshowcontainer">
         
-        <h2>Blue Razz</h2>
-        <div class="dropdown">
-                <button class="dropbtn">Nicotine Strength</button>
-                <div class="dropdown-content">
-                  <a href="#">3 mg</a>
-                  <a href="#">6 mg</a>
+        <div class="mySlides" id="products">
+                <img src="./images/BLACK BG/Products.png" style"width:100%">
+                <div id="marquee">
+                        <marquee behavior="scroll" direction="left" style="font-size: 30px; color:#01b2f6;">STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD. STAY LIGHT. STAY LIFTED. STAY LQD.</marquee>
                 </div>
         </div>
-        <button class="button">Add to Cart</button>
 
-        <p style="color:white">
-            Blue razz is a flavor<br/>
-            (Flavor Description Goes here)
-        </p>
-        
+        <div class="mySlides" id="products">
+            <div class="text"><h2>Mint Chip</h2></div>
+            <img class="productphoto" src="./images/PNG (transp) files/mint-chip-transp-rev.png">
+            <div class="dropdown">
+            <button class="dropbtn">Nicotine Strength</button>
+            <div class="dropdown-content">
+              <a href="#">3 mg</a>
+              <a href="#">6 mg</a>
+            </div>
+            </div>
+            <button class="button">Add to Cart</button>
+
+            <div class="numbertext">1 / 4</div>
+        </div>
+      
+        <div class="mySlides">
+        <div class="text"><h2>Tangerine Dream</h2></div>
+        <img class="productphoto" src="./images/PNG (transp) files/tangerine-dream-transp-rev.png">
+        <div class="dropdown">
+            <button class="dropbtn">Nicotine Strength</button>
+            <div class="dropdown-content">
+              <a href="#">3 mg</a>
+              <a href="#">6 mg</a>
+            </div>
+            </div>
+            <button class="button">Add to Cart</button>
+        <div class="numbertext">2 / 4</div>
+        </div>
+      
+        <div class="mySlides">
+         <div class="text"><h2>Pink Lemon</h2></div>
+        <img class="productphoto" src="./images/PNG (transp) files/pink-lemon-transp-rev.png">
+        <div class="dropdown">
+            <button class="dropbtn">Nicotine Strength</button>
+            <div class="dropdown-content">
+              <a href="#">3 mg</a>
+              <a href="#">6 mg</a>
+            </div>
+            </div>
+            <button class="button">Add to Cart</button>
+            <div class="numbertext">3 / 4</div>
+        </div>
+
+        <div class="mySlides">
+        <div class="text"><h2>Bluerazz</h2></div>
+        <img class="productphoto" src="./images/PNG (transp) files/lqd-bluerazz-transp-rev.png">
+        <div class="dropdown">
+            <button class="dropbtn">Nicotine Strength</button>
+            <div class="dropdown-content">
+              <a href="#">3 mg</a>
+              <a href="#">6 mg</a>
+            </div>
+            </div>
+            <button class="button">Add to Cart</button>
+            <div class="numbertext">4 / 4</div>       
+        </div>
+      
+        <br/>
+      <a class="prev" onclick="plusSlides(-1)" style="position: absolute; left: 100px;">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)" style="position: absolute; right: 100px;">&#10095;</a>
     </div>
+      
+</div>
 
 </div>
 <script>
