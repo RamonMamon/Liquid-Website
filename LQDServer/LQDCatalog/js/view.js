@@ -71,8 +71,25 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";  
   }
 
+function blueStrength(n)
+{
+    document.getElementById("bRazz").innerHTML = n + " mg";
+}
 
-  
+function pinkStrength(n)
+{
+    document.getElementById("pink").innerHTML = n + " mg";
+}
+
+function tanStrength(n)
+{
+    document.getElementById("tDream").innerHTML = n + " mg";
+}
+
+function mintStrength(n)
+{
+    document.getElementById("mChip").innerHTML = n + " mg";
+}
 /**
  * PRODUCTS FUNCTIONALITY
  */

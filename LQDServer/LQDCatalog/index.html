@@ -28,8 +28,8 @@
 </div>
 
 <div style="background-color: transparent;">
-        <h2 style="position: absolute; left: 300px; top: 620px; color:#01b2f6; cursor:pointer;" onclick="moveToAbout()">about</h2>
-        <h2 style="position: absolute; right: 300px; top: 620px; color:#01b2f6; cursor: pointer;" onclick="moveToProducts()">Products</h2>
+        <h2 style="position: absolute; left: 25%; top: 80%; color:#01b2f6; cursor:pointer;" onclick="moveToAbout()">about</h2>
+        <h2 style="position: absolute; right: 25%; top: 80%; color:#01b2f6; cursor: pointer;" onclick="moveToProducts()">Products</h2>
 </div>
 
 <div id="marquee">
@@ -59,10 +59,10 @@
             <div class="text"><h2>Mint Chip</h2></div>
             <img class="productphoto" src="./images/PNG (transp) files/mint-chip-transp-rev.png">
             <div class="dropdown">
-            <button class="dropbtn">Nicotine Strength</button>
+            <button class="dropbtn" id = "mChip">Nicotine Strength</button>
             <div class="dropdown-content">
-              <a href="#">3 mg</a>
-              <a href="#">6 mg</a>
+                <a href="javascript:void(0)" onclick="mintStrength(3)">3 mg</a>
+                <a href="javascript:void(0)" onclick="mintStrength(6)">6 mg</a>
             </div>
             </div>
             <button class="button">Add to Cart</button>
@@ -74,10 +74,10 @@
         <div class="text"><h2>Tangerine Dream</h2></div>
         <img class="productphoto" src="./images/PNG (transp) files/tangerine-dream-transp-rev.png">
         <div class="dropdown">
-            <button class="dropbtn">Nicotine Strength</button>
+            <button class="dropbtn" id = "tDream">Nicotine Strength</button>
             <div class="dropdown-content">
-              <a href="#">3 mg</a>
-              <a href="#">6 mg</a>
+                <a href="javascript:void(0)" onclick="tanStrength(3)">3 mg</a>
+                <a href="javascript:void(0)" onclick="tanStrength(6)">6 mg</a>
             </div>
             </div>
             <button class="button">Add to Cart</button>
@@ -85,13 +85,13 @@
         </div>
       
         <div class="mySlides">
-         <div class="text"><h2>Pink Lemon</h2></div>
+         <div class="text"><h2>Pink Lemonade</h2></div>
         <img class="productphoto" src="./images/PNG (transp) files/pink-lemon-transp-rev.png">
         <div class="dropdown">
-            <button class="dropbtn">Nicotine Strength</button>
+            <button class="dropbtn" id = "pink">Nicotine Strength</button>
             <div class="dropdown-content">
-              <a href="#">3 mg</a>
-              <a href="#">6 mg</a>
+                <a href="javascript:void(0)" onclick="pinkStrength(3)">3 mg</a>
+                <a href="javascript:void(0)" onclick="pinkStrength(6)">6 mg</a>
             </div>
             </div>
             <button class="button">Add to Cart</button>
@@ -99,13 +99,13 @@
         </div>
 
         <div class="mySlides">
-        <div class="text"><h2>Bluerazz</h2></div>
+        <div class="text"><h2>Blue Razzberry</h2></div>
         <img class="productphoto" src="./images/PNG (transp) files/lqd-bluerazz-transp-rev.png">
         <div class="dropdown">
-            <button class="dropbtn">Nicotine Strength</button>
+            <button class="dropbtn" id="bRazz">Nicotine Strength</button>
             <div class="dropdown-content">
-              <a href="#">3 mg</a>
-              <a href="#">6 mg</a>
+              <a href="javascript:void(0)" onclick="blueStrength(3)">3 mg</a>
+              <a href="javascript:void(0)" onclick="blueStrength(6)">6 mg</a>
             </div>
             </div>
             <button class="button">Add to Cart</button>
