@@ -3,7 +3,7 @@ let app = express();
 let bodyParser = require('body-parser');
 var path = require("path");
 
-const port = 8080;
+const port = 80;
 const internalServerError = 500;
 const OK = 200;
 var clientDirectory = path.join(__dirname,'../LQDCatalog');
@@ -26,6 +26,8 @@ app.get('/', function(req, res) {
     res.sendFile(path.resolve(clientDirectory, './index.html'));
 });
 
+//Implement Admin page request here
+
 // Logs any server-side errors to the console and send 500 error code.
 app.use(function (err, req, res) {
     // TODO: Add a response to the error.
@@ -33,8 +35,8 @@ app.use(function (err, req, res) {
     req.status(internalServerError).send('Something broke!');
 });
 
-app.listen(port,function(){
-    console.log('Server running, access the website by going to http://staylqd.com:8080/');
+app.listen(port, function(){
+    console.log('Server running, access the website by going to http://staylqd.com/');
 });
 
 var csv = require('csv');
