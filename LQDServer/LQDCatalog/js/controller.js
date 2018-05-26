@@ -7,10 +7,14 @@
 /**
  * The module that initializes the SPA.
  */
+
+
+
 var controller = (function(){
     function init(){
         initializeView();
         initializeNavBarButtons();
+        retrieveProducts();
     }return {
         init: init
     }

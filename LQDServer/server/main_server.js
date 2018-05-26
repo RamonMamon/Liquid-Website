@@ -17,6 +17,13 @@ app.use("/js", express.static(path.join(clientDirectory,'/js')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+const moltin = require('@moltin/sdk');
+
+const Moltin = moltin.gateway({
+  client_id: '99WMj74mT9o9bRHQqBswfFMyDrC8GqxHbX2ytpOsS7',
+  client_secret: 'bXM5Nx3J22cLeMAVK8dGo00RKpxGwTtpJwAhnOOqRz'
+});
+
 /**
  * Sends the index.html file to the client.
  */
@@ -25,8 +32,6 @@ app.get('/', function(req, res) {
     res.status(OK);
     res.sendFile(path.resolve(clientDirectory, './index.html'));
 });
-
-//Implement Admin page request here
 
 // Logs any server-side errors to the console and send 500 error code.
 app.use(function (err, req, res) {
@@ -39,47 +44,5 @@ app.listen(port, function(){
     console.log('Server running, access the website by going to http://staylqd.com/');
 });
 
-var csv = require('csv');
-// gets the csv module to access the required functionality
+//Implement Admin page request here
 
-//Product ID, Product Name, Description, Stock.
-function product(productID, productName, description, stock) {
-    this.productID = productID;
-    this.productName = productName;
-    this.description = description;
-    this.stock = stock;
-}; 
-// Define the MyCSV object with parameterized constructor, this will be used for storing the data read from the csv into an array of MyCSV. You will need to define each field as shown above.
-
-var csvData = [];
-
-var parser = csv.parse({delimiter: ','});
-var generator = csv.generate({seed: 1, columns: 4, length: 5});
-var transformer = csv.transform(function(data){
-  return data.map(function(value){return value.toUpperCase()});
-});
-var stringifier = csv.stringify();
- 
-generator.on('readable', function(){
-  while(data = generator.read()){
-    parser.write(data);
-  }
-});
- 
-parser.on('readable', function(){
-  while(data = parser.read()){
-    transformer.write(data);
-  }
-});
- 
-transformer.on('readable', function(){
-  while(data = transformer.read()){
-    stringifier.write(data);
-  }
-});
- 
-stringifier.on('readable', function(){
-  while(data = stringifier.read()){
-    // process.stdout.write(data);
-  }
-});
