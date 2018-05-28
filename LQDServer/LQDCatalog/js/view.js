@@ -1,6 +1,8 @@
 ﻿var offset;
 var navbar;
 var slideIndex = 1;
+var productsList = [];
+
 
 /**
  * When the user scrolls the page past the navbars offset, the navbar will
@@ -25,6 +27,7 @@ function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Sets the current position of the navbar. 
     showSlides(slideIndex);
+    productsList = sendProductsToView();
 }
 
 function moveToAbout(){
@@ -71,26 +74,7 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";  
   }
 
-function blueStrength(n)
-{
-    document.getElementById("bRazz").innerHTML = n + " mg";
-}
-
-function pinkStrength(n)
-{
-    document.getElementById("pink").innerHTML = n + " mg";
-}
-
-function tanStrength(n)
-{
-    document.getElementById("tDream").innerHTML = n + " mg";
-}
-
-function mintStrength(n)
-{
-    document.getElementById("mChip").innerHTML = n + " mg";
-}
-/**
+  /**
  * PRODUCTS FUNCTIONALITY
  */
 
@@ -98,6 +82,22 @@ function mintStrength(n)
 Takes a product list and prints it on the products section of the page.
 */
  function viewProducts(productList){
-
+    var newContent = $('#content').html("");
+    var content = $('content');
+    for(var i = num.zero; i <= productsList.length-1;i++)
+    {
+        var productID = "product" + i;
+        var product = JSON.parse(localStorage.getItem(TaskID));
+        
+        var $div = $("<div>", {"id": productID, "class": "mySlides"});
+        $div.append($("< div/>").addClass("label").html($("<h2 />").addClass("productName").html(product.name)));
+        $div.append($("<img />").addClass("prouctphoto").html(product.photo));
+        $div.append($("<div>").addClass("dropdown"));
+        $div.append($("<a />").html("3mg"));
+        $div.append($("<a />").html("6mg"));
+        $div.append($("<p/>").html(product.description));
+        $div.append($("<button />").addClass("button").html("Add to Cart"));
+        $div.append($("<div/>")).addClass("numbertext").html( (i + 1) + "/" + productList.length);
+    }
  }
 

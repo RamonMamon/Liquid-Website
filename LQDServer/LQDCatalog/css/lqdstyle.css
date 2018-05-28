@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     background-size: cover, auto;
     position: relative;
+    width: 100%;
 }
 
 .header-images{
@@ -28,6 +29,7 @@
     background-position-y: top;
     padding-bottom: 45%;
     position: relative;
+    width: 50%;
 }
 
 .static-smoke{
@@ -36,6 +38,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover, auto;
+    width: 100%;
 }
 
 body{
@@ -269,4 +272,30 @@ img {vertical-align: middle;}
   .productphoto
   {
       width:40%;
+  }
+
+  .menuButton
+  {
+    position: absolute; 
+    top: 80%; 
+    color:#01b2f6; 
+    cursor:pointer;
+  }
+
+  #marquee
+  {
+    font-size: 30px; 
+    color:#01b2f6;
+  }
+
+  .prevButtons
+  {
+    position: absolute;
+    left: 10%;
+  }
+
+  .nextButtons
+  {
+      position: absolute;
+      right: 10%;
   }
