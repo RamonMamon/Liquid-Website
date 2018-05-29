@@ -6,26 +6,14 @@
 	
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./js/packages/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/@moltin/sdk"></script>
     <script src="./js/view.js"></script>
     <script src="./js/controller.js"></script>
     <script src="./js/model.js"></script>
-    <script type ="module">
-        console.log("Hi ")
-        import { gateway as MoltinGateway } from '../node_modules/@moltin/sdk';
-        // import {gateway as MoltinGateway} from '@moltin/sdk';
-        const Moltin = MoltinGateway({
-            client_id: '99WMj74mT9o9bRHQqBswfFMyDrC8GqxHbX2ytpOsS7'
-        });
-        const products = Moltin.Products.All().then((products) => {
-            console.log("Products: " + products);
-        });
-    </script>
     <link rel="icon" type="image/png" href="./images/PNG (transp) files/lqd-blue2-transp.png"/>
     <link href="./css/lqdstyle.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    
 </head>
-
 
 <body>
 <div id = "lqdHeader">

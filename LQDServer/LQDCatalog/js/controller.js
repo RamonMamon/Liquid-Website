@@ -4,22 +4,19 @@
  * This is also where you initialize the Single Page application.
  */
 
-/**
- * The module that initializes the SPA.
- */
-
-
-
 var controller = (function(){
-    function init(){
+    async function init(){
         initializeView();
         initializeNavBarButtons();
-        retrieveProducts();
+        initializeProducts(await retrieveProductData());// Waits for the product list to be retrieved before being called.
     }return {
         init: init
     }
 })();
 
+/**
+ * This function will initialize the Navigation buttons found at the header of the page.
+ */
 function initializeNavBarButtons(){
     $("#aboutNav").click(function(){ 
         moveToAbout();
@@ -27,8 +24,4 @@ function initializeNavBarButtons(){
     $("#productsNav").click(function(){ 
         moveToProducts();
     });
-}
-
-function sendProductsToView(){
-    viewProducts(retrieveProducts());
 }

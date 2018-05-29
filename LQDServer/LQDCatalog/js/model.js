@@ -2,28 +2,29 @@
  * Add all the computation and all the functionality of the website here.
  */
 
-
+const Moltin = moltin.gateway({client_id: '99WMj74mT9o9bRHQqBswfFMyDrC8GqxHbX2ytpOsS7'}); //Authenticates Client with API
 
  //Sends messages to the server
 
  //Receive responses containing data from the server
 
-
  //Function that returms the list of items or store the list of items in an array.
- function retrieveProducts(Moltin){
-    // var products = [];
-     //Retrieves a list of products from the server
-     //Parses the list of products and returns an unparsed list of products.
-    
-    // return products;
- }
+async function retrieveProductData(){
+    const products = await Moltin.Products.With(['main_image']).All();//This will wait for the promised product list to be returned.
+    return products;
+}
 
+//     console.log('authenticated', response);
+//     Moltin.Products.Filter({like:{sku:'BR_'}}).All().then(products => {
+//         // Do something
+//         console.log("3mg Products" , products);
+//     });
+//     // console.log(products.data[0].id);
 
-/**
- * Retrieves the products from the stock.
- */
-
-
+//     const blueRazz = Moltin.Products.Get('c3604c08-c239-4ff2-9f02-6bbd47e2724f').then(products => {
+//         console.log(products)
+//     });
+ 
 
 
 

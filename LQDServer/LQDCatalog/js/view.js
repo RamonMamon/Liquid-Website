@@ -1,8 +1,6 @@
 ﻿var offset;
 var navbar;
 var slideIndex = 1;
-var productsList = [];
-
 
 /**
  * When the user scrolls the page past the navbars offset, the navbar will
@@ -23,11 +21,13 @@ $(window).resize(function(){
     offset = navbar.offset();
 });
 
+/**
+ * This function will initialize the default settings of the page.
+ */
 function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Sets the current position of the navbar. 
     showSlides(slideIndex);
-    productsList = sendProductsToView();
 }
 
 function moveToAbout(){
@@ -72,26 +72,62 @@ function showSlides(n) {
         slides[i].style.display = "none";  
     }
     slides[slideIndex-1].style.display = "block";  
-  }
+}
 
   /**
  * PRODUCTS FUNCTIONALITY
  */
 
-/*
-Takes a product list and prints it on the products section of the page.
-*/
- function viewProducts(productList){
+
+
+ /**
+  * NOTES FOR EMMAN
+  * 
+  * Don't create too many unnecessary functions. In the controller file you created a function that makes the call viewProducts(retrieveProducts). I get what you're trying to do
+  * but that just creates an extra function that isn't needed since that's the point of the init function in the first place. I've moved it into the init function inside the controller. 
+  * Creating functions is good for code that will be reused, too long, to improve documentability, and user readability. The last reason is why smart naming is important. It allows your code
+  * to be understood easier which is very important when working in groups. If smart naming is not possible at least make comments to indicate what they do and how they work. This is one of the
+  * reasons why my markers in the UK didn't grade me as well as my other peers, because my documentation needed some improvements.
+  * 
+  * I know I haven't taught you the CMV structure as in-depth as I should have and you haven't formally learned it so I understand, but here are some things to keep in mind. 
+  * Keep each functionality strictly in each type of file that it's supposed to be in. That is, if you have something that needs to be calculated and is part of the functionality of the website, then keep
+  * it in the model file. For example, the retrieveProductData() function retrieves data from the Moltin Database and is returned by the function to be used elsewhere. Basically the model should keep all the calculations
+  * and complications that the user does not need to see. The Job of the View of the other hand, is everything we as programmers want the user to see. This includes forms that can be interacted with and 
+  * the text and images that they can see. When you look back at my code from the task manager, you should also know that it's not perfect and there are some things that I could have done better. This feedback
+  * from my professor is one of them. 
+  * 
+  * "MVC pattern has been used but I think
+  * you’ve placed a lot functionality in the view
+  * module that could have been better placed
+  * in the controller." - Colin Alison
+  * 
+  * Don't make the same mistake I did with that while reading the view section of my code.
+  * 
+  * Lastly, the controller file is what brings both together and takes the user input from the view, and plugs it into the necessary functions in the model. This is the same for any data that comes from the model
+  * and needs to be seen in the view.
+  */
+
+
+/**
+ * Takes an object list containing the data of the products including the images that correspond to each product.
+ * @param {Object} productList
+ */
+function initializeProducts(productList){
     var newContent = $('#content').html("");
     var content = $('content');
-    for(var i = num.zero; i <= productsList.length-1;i++)
+    console.log("Retrieve Products", productList.data.length)
+    console.log("File Image", productList)
+
+
+
+    for(var i = 0; i <= productList.length-1;i++)
     {
         var productID = "product" + i;
         var product = JSON.parse(localStorage.getItem(TaskID));
         
         var $div = $("<div>", {"id": productID, "class": "mySlides"});
-        $div.append($("< div/>").addClass("label").html($("<h2 />").addClass("productName").html(product.name)));
-        $div.append($("<img />").addClass("prouctphoto").html(product.photo));
+        $div.append($("<div/>").addClass("label").html($("<h2 />").addClass("productName").html(product.name)));
+        $div.append($("<img />").addClass("productphoto").html(product.photo));
         $div.append($("<div>").addClass("dropdown"));
         $div.append($("<a />").html("3mg"));
         $div.append($("<a />").html("6mg"));
@@ -99,5 +135,5 @@ Takes a product list and prints it on the products section of the page.
         $div.append($("<button />").addClass("button").html("Add to Cart"));
         $div.append($("<div/>")).addClass("numbertext").html( (i + 1) + "/" + productList.length);
     }
- }
+}
 
