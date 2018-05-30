@@ -4,14 +4,19 @@
 
 const Moltin = moltin.gateway({client_id: '99WMj74mT9o9bRHQqBswfFMyDrC8GqxHbX2ytpOsS7'}); //Authenticates Client with API
 
- //Sends messages to the server
+var products; // Contains all the data of each product
+var productImages; // Contains the images for each product
 
- //Receive responses containing data from the server
+ /**
+  * Function that retrieves the specified list of items from the catalog.
+  * @param {Integer} nicStrength is the specified strength of the nicotine.
+  */
+async function retrieveProductData(nicStrength){
+    var nicStrength = (nicStrength == 6) ? nicStrength = '*6mg' : nicStrength = '*3mg'; //Nicotine strength
 
- //Function that returms the list of items or store the list of items in an array.
-async function retrieveProductData(){
-    const products = await Moltin.Products.With(['main_image']).All();//This will wait for the promised product list to be returned.
-    return products;
+    const productData = await Moltin.Products.Filter({like: {sku: nicStrength}}).With(['main_image']).All();//This will wait for the promised product list to be returned.
+    productImages = productData.included.main_images;
+    products = productData.data;
 }
 
 //     console.log('authenticated', response);

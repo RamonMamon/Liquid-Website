@@ -110,24 +110,23 @@ function showSlides(n) {
 
 /**
  * Takes an object list containing the data of the products including the images that correspond to each product.
- * @param {Object} productList
+ * @param {Object} productList Contains each product from the catalog.
  */
-function initializeProducts(productList){
+function initializeProducts(productList, productImages){
     var newContent = $('#content').html("");
     var content = $('content');
-    console.log("Retrieve Products", productList.data.length)
-    console.log("File Image", productList)
+    console.log("Retrieve Products", productList.length);
+    console.log("File Image", productImages);
 
 
 
     for(var i = 0; i <= productList.length-1;i++)
     {
-        var productID = "product" + i;
-        var product = JSON.parse(localStorage.getItem(TaskID));
+        var product = productList[i];
         
-        var $div = $("<div>", {"id": productID, "class": "mySlides"});
+        var $div = $("<div>", {"id": product.id, "class": "mySlides"});
         $div.append($("<div/>").addClass("label").html($("<h2 />").addClass("productName").html(product.name)));
-        $div.append($("<img />").addClass("productphoto").html(product.photo));
+        $div.append($("<img />").addClass("productphoto").html(productImages[i].link.href));
         $div.append($("<div>").addClass("dropdown"));
         $div.append($("<a />").html("3mg"));
         $div.append($("<a />").html("6mg"));

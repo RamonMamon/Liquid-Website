@@ -8,7 +8,9 @@ var controller = (function(){
     async function init(){
         initializeView();
         initializeNavBarButtons();
-        initializeProducts(await retrieveProductData());// Waits for the product list to be retrieved before being called.
+        await retrieveProductData(6).then(function(){
+            initializeProducts(products, productImages);// Waits for the product list to be retrieved before being called.
+        });
     }return {
         init: init
     }
