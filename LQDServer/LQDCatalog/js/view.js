@@ -136,3 +136,7 @@ function initializeProducts(productList, productImages){
     }
 }
 
+function updateCart(cart){
+
+}
+

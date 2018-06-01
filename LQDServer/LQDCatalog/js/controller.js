@@ -11,6 +11,7 @@ var controller = (function(){
         await retrieveProductData(6).then(function(){
             initializeProducts(products, productImages);// Waits for the product list to be retrieved before being called.
         });
+        updateCart(getCart());
     }return {
         init: init
     }
@@ -26,4 +27,15 @@ function initializeNavBarButtons(){
     $("#productsNav").click(function(){ 
         moveToProducts();
     });
+}
+
+
+function addProductToCart(productID){
+    addToCart(productID);
+    updateCart(getCart());
+}
+
+function removeProduct(productID){
+    removeFromCart(productID);
+    updateCart(getCart());
 }
