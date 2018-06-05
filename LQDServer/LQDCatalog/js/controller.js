@@ -8,10 +8,9 @@ var controller = (function(){
     async function init(){
         initializeView();
         initializeNavBarButtons();
-        await retrieveProductData(6).then(function(){
-            initializeProducts(products, productImages);// Waits for the product list to be retrieved before being called.
-        });
-        updateCart(getCart());
+        var nicStrength = 6;
+        initializeProducts(nicStrength);
+        updateCart(getCart()); //TODO
     }return {
         init: init
     }
@@ -29,6 +28,16 @@ function initializeNavBarButtons(){
     });
 }
 
+/**
+ * Meant to be called once the nicotine strength is changed. 
+ * Initializes the products in the products section once they have been retrieved from the server.
+ * @param {int} nicStrength 
+ */
+async function initializeProducts(nicStrength){
+    await retrieveProductData(nicStrength).then(function(){
+        updateProducts(products, productImages);// Waits for the product list to be retrieved before being called.
+    });
+}
 
 function addProductToCart(productID){
     addToCart(productID);
@@ -38,4 +47,11 @@ function addProductToCart(productID){
 function removeProduct(productID){
     removeFromCart(productID);
     updateCart(getCart());
+}
+
+/**
+ * Passes the user details from the view to the model.
+ */
+function checkout(){
+    passToCheckout();
 }

@@ -111,14 +111,13 @@ function showSlides(n) {
 /**
  * Takes an object list containing the data of the products including the images that correspond to each product.
  * @param {Object} productList Contains each product from the catalog.
+ * @param {Object} productImages Contains the images of each product from the catalog.
  */
-function initializeProducts(productList, productImages){
+function updateProducts(productList, productImages){
     var newContent = $('#content').html("");
     var content = $('content');
     console.log("Retrieve Products", productList.length);
     console.log("File Image", productImages);
-
-
 
     for(var i = 0; i <= productList.length-1;i++)
     {
@@ -136,7 +135,33 @@ function initializeProducts(productList, productImages){
     }
 }
 
+/**
+ * Updates the cart in the html file.
+ * @param {Object} cart Contains all the items in the cart.
+ */
 function updateCart(cart){
 
 }
+
+/**
+ * Creates checkout form on the HTML page.
+ */
+function checkoutForm(){
+
+}
+
+/**
+ * 
+ */
+function getCustomerDetails(){
+    
+}
+
+/**
+ * Shows a form for the user to fill in to retrieve the user details.
+ */
+function getAddress(){
+
+}
+
 

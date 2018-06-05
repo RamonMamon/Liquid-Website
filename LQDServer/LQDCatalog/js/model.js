@@ -32,10 +32,19 @@ function removeFromCart(productID){
     });
 }
 
+/**
+ * Returns an array of items from the lqd catalog on moltin.
+ */
 function getCart(){
     return Moltin.Cart().getItems();
 }
 
-function checkout(){
-    
+/**
+ * 
+ * @param {Object} customer 
+ * @param {Object} address 
+ */
+function passToCheckout(customer, address){
+    //Get the address and customer details from the view and pass them onto the Checkout function.
+    //Moltin.Cart().Checkout(customer, address);
 }
