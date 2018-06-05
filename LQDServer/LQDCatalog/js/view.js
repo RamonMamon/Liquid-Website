@@ -114,24 +114,35 @@ function showSlides(n) {
  * @param {Object} productImages Contains the images of each product from the catalog.
  */
 function updateProducts(productList, productImages){
-    var newContent = $('#content').html("");
-    var content = $('content');
+    var newMySlides = $('#slideshowcontainer');
+    var mySlides = $('#slideshowcontainer');
     console.log("Retrieve Products", productList.length);
     console.log("File Image", productImages);
 
     for(var i = 0; i <= productList.length-1;i++)
     {
         var product = productList[i];
-        
+
+        var $nicotineDropdown = $("<div>",{"class":"dropdown","id": dropDownContentID});
+        $nicotineDropdown.append($("<button>").addClass("dropbtn").html("Nicotine Strength"));
+        var dropDownContentID = product.id + "strength";
+
+        var $dropdownContent = $("<div>",{ "class": "dropdown-content"});
+        $dropdownContent.append($("<a>").html("3 mg"));
+        $dropdownContent.append($("<a>").html("6 mg"));
+        $nicotineDropdown.append($dropdownContent);
+
         var $div = $("<div>", {"id": product.id, "class": "mySlides"});
-        $div.append($("<div/>").addClass("label").html($("<h2 />").addClass("productName").html(product.name)));
-        $div.append($("<img />").addClass("productphoto").html(productImages[i].link.href));
-        $div.append($("<div>").addClass("dropdown"));
-        $div.append($("<a />").html("3mg"));
-        $div.append($("<a />").html("6mg"));
-        $div.append($("<p/>").html(product.description));
-        $div.append($("<button />").addClass("button").html("Add to Cart"));
-        $div.append($("<div/>")).addClass("numbertext").html( (i + 1) + "/" + productList.length);
+        $div.append($("<div>").html($("<h2 />").addClass("productName").html(product.name)));
+        $div.append($("<img >").addClass("productphoto").attr("src",productImages[i].link.href));
+        
+        $div.append($nicotineDropdown);
+        $div.append($("<button>").addClass("button").html("Add to Cart"));
+        $div.append($("<p>").html(product.description));
+        $div.append($("<div>").addClass("numbertext").html( (i + 1) + "/" + productList.length));
+        
+        console.log($div);
+        newMySlides.append($div);
     }
 }
 
