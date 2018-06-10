@@ -17,17 +17,17 @@ async function retrieveProductData(nicStrength){
     const productData = await Moltin.Products.Filter({like: {sku: nicStrength}}).With(['main_image']).All();//This will wait for the promised product list to be returned.
 
     productImages = productData.included.main_images; // Gets the images of each Product
-    products = productData.data;// Stores the data of each product.
+    products = productData.data; // Stores the data of each product.
 }
 
-function addToCart(productID){
+async function addToCart(productID){
     Moltin.Cart().addProduct(productID).then((item) => {
         alert(item.name + " has been added to your cart.");
     });
 }
 
-function removeFromCart(productID){
-    Moltin.Cart().removeProduct(productID).then((item) =>{
+async function removeFromCart(productID){
+    Moltin.Cart().removeProduct(productID).then((item) => {
         alert(item.name + " has been removed from your cart.");
     });
 }
@@ -36,7 +36,7 @@ function removeFromCart(productID){
  * Returns an array of items from the lqd catalog on moltin.
  */
 function getCart(){
-    return Moltin.Cart().getItems();
+    return Moltin.Cart().Items();
 }
 
 /**

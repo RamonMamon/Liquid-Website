@@ -46,3 +46,4 @@ app.listen(port, function(){
 
 //Implement Admin page request here
 
+//Create an error handler that deals with multiple running instances of the server.

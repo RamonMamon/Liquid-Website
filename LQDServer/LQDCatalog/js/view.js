@@ -78,36 +78,6 @@ function showSlides(n) {
  * PRODUCTS FUNCTIONALITY
  */
 
-
-
- /**
-  * NOTES FOR EMMAN
-  * 
-  * Don't create too many unnecessary functions. In the controller file you created a function that makes the call viewProducts(retrieveProducts). I get what you're trying to do
-  * but that just creates an extra function that isn't needed since that's the point of the init function in the first place. I've moved it into the init function inside the controller. 
-  * Creating functions is good for code that will be reused, too long, to improve documentability, and user readability. The last reason is why smart naming is important. It allows your code
-  * to be understood easier which is very important when working in groups. If smart naming is not possible at least make comments to indicate what they do and how they work. This is one of the
-  * reasons why my markers in the UK didn't grade me as well as my other peers, because my documentation needed some improvements.
-  * 
-  * I know I haven't taught you the CMV structure as in-depth as I should have and you haven't formally learned it so I understand, but here are some things to keep in mind. 
-  * Keep each functionality strictly in each type of file that it's supposed to be in. That is, if you have something that needs to be calculated and is part of the functionality of the website, then keep
-  * it in the model file. For example, the retrieveProductData() function retrieves data from the Moltin Database and is returned by the function to be used elsewhere. Basically the model should keep all the calculations
-  * and complications that the user does not need to see. The Job of the View of the other hand, is everything we as programmers want the user to see. This includes forms that can be interacted with and 
-  * the text and images that they can see. When you look back at my code from the task manager, you should also know that it's not perfect and there are some things that I could have done better. This feedback
-  * from my professor is one of them. 
-  * 
-  * "MVC pattern has been used but I think
-  * you’ve placed a lot functionality in the view
-  * module that could have been better placed
-  * in the controller." - Colin Alison
-  * 
-  * Don't make the same mistake I did with that while reading the view section of my code.
-  * 
-  * Lastly, the controller file is what brings both together and takes the user input from the view, and plugs it into the necessary functions in the model. This is the same for any data that comes from the model
-  * and needs to be seen in the view.
-  */
-
-
 /**
  * Takes an object list containing the data of the products including the images that correspond to each product.
  * @param {Object} productList Contains each product from the catalog.
@@ -141,7 +111,6 @@ function updateProducts(productList, productImages){
         $div.append($("<p>").html(product.description));
         $div.append($("<div>").addClass("numbertext").html( (i + 1) + "/" + productList.length));
         
-        console.log($div);
         newMySlides.append($div);
     }
 }

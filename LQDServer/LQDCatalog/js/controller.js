@@ -33,20 +33,22 @@ function initializeNavBarButtons(){
  * Initializes the products in the products section once they have been retrieved from the server.
  * @param {int} nicStrength 
  */
-async function initializeProducts(nicStrength){
-    await retrieveProductData(nicStrength).then(function(){
+function initializeProducts(nicStrength){
+    retrieveProductData(nicStrength).then(function(){
         updateProducts(products, productImages);// Waits for the product list to be retrieved before being called.
     });
 }
 
 function addProductToCart(productID){
-    addToCart(productID);
-    updateCart(getCart());
+    addToCart(productID).then(function(){
+        updateCart(getCart());
+    });
 }
 
 function removeProduct(productID){
-    removeFromCart(productID);
-    updateCart(getCart());
+    removeFromCart(productID).then(function(){
+        updateCart(getCart());
+    });
 }
 
 /**
