@@ -297,7 +297,7 @@ Scaling for non desktop devices
 .menuButton
 {
     position: absolute; 
-    top: 23%; 
+    top: 20%; 
     color:#01b2f6; 
     cursor:pointer;
 }
@@ -316,7 +316,7 @@ Scaling for non desktop devices
 .menuButton
 {
     position: absolute; 
-    top: 30%; 
+    top: 25%; 
     color:#01b2f6; 
     cursor:pointer;
 }
