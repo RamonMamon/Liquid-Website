@@ -47,6 +47,7 @@ body{
     color:white;
     font-family:impact;
     font-style: italic;
+    width: 100%;
 }
 
 /* Navbar links */
@@ -117,8 +118,11 @@ and makes the navbar slightly transparent.
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 .content{
     /* background-color: rgba(0, 0, 0); */
-    padding: 30px 40px;
+    padding: 5% 3%;
     text-align: center;
+    font-family: impact;
+    font-style: italic;
+    color: #01b2f6;
 }
 
 /*Sets the colors of the text in .content.*/
@@ -126,17 +130,11 @@ and makes the navbar slightly transparent.
     color: white;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-
 /* */
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 16px;
+    padding: 5px 13px;
     font-size: 16px;
     border: none;
     font-family: Impact;
@@ -152,7 +150,7 @@ and makes the navbar slightly transparent.
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 141px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -178,8 +176,7 @@ and makes the navbar slightly transparent.
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
+    padding: 5px 33px;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
@@ -191,6 +188,14 @@ and makes the navbar slightly transparent.
 .about{
     width: auto;
     /* padding-bottom: 45%; */
+}
+
+.about-img{
+    width: 100%;
+}
+
+.product-description{
+    font-size: 2vmin;
 }
 
 /*slideshow */
@@ -263,11 +268,7 @@ img {vertical-align: middle;}
     from {opacity: .4} 
     to {opacity: 1}
   }
-  
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
-  }
+
 
   .productphoto
   {
@@ -277,14 +278,15 @@ img {vertical-align: middle;}
   .menuButton
   {
     position: absolute; 
-    top: 80%; 
+    top: 250px; 
     color:#01b2f6; 
     cursor:pointer;
+    font-size:3.0vh;
   }
 
   #marquee
   {
-    font-size: 30px; 
+    font-size: 3.0vh; 
     color:#01b2f6;
   }
 
@@ -298,4 +300,106 @@ img {vertical-align: middle;}
   {
       position: absolute;
       right: 10%;
+  }
+    
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 414px) {
+    /* Styles */
+    .menuButton
+    {
+      position: absolute; 
+      top: 23%; 
+      color:#01b2f6; 
+      cursor:pointer;
+    }
+    .product-description{
+        font-size:4vmin;
+    }
+    .productphoto
+    {
+        width:60%;
+    }
+    }
+    
+    /* iPads (portrait) ----------- */
+    @media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+    .menuButton
+    {
+      position: absolute; 
+      top: 30%; 
+      color:#01b2f6; 
+      cursor:pointer;
+    }
+
+    .productphoto
+    {
+        width:60%;
+    }
+    }
+    /**********
+    iPad 3
+    **********/
+    @media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+    /* Styles */
+    .menuButton
+    {
+      position: absolute; 
+      top: 50%; 
+      color:#01b2f6; 
+      cursor:pointer;
+    }
+    }
+    
+    /* Desktops and laptops ----------- */
+    @media only screen  and (min-width : 1224px) {
+    /* Styles */
+    .menuButton
+    {
+      position: absolute; 
+      top: 60%; 
+      color:#01b2f6; 
+      cursor:pointer;
+    }
+    }
+    
+    /* iPhone X ----*/
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .menuButton{
+            top: 21%;
+        }
+        .lqd-Header-Logo{
+            background-size: 10%, auto;
+            background-position-x: left; 
+            background-position-y: top;
+            padding-bottom: 45%;
+            position: relative;
+            width: 100%;
+        }
+        .productphoto
+        {
+            width:60%;
+        }
+    }
+
+      /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .menuButton
+    {
+      position: absolute; 
+      top: 20%; 
+      color:#01b2f6; 
+      cursor:pointer;
+    }
+    }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
   }
