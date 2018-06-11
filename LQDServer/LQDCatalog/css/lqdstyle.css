@@ -2,7 +2,6 @@
 #lqdHeader{
     background-color: rgb(0, 0, 0);
     background-image: url("../images/Smoke/background.gif");
-    background-attachment: absolute;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover, auto;
@@ -10,14 +9,7 @@
     width: 100%;
 }
 
-.header-images{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-repeat: no-repeat;
-}
+
 
 .lqd-Header-Logo{
     background-attachment: fixed;
@@ -28,17 +20,21 @@
     background-position-x: center; 
     background-position-y: top;
     padding-bottom: 45%;
-    position: relative;
+    /* position: relative; */
     width: 100%;
 }
 
 .static-smoke{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url("../images/Smoke/transparent.png");
-    background-attachment: absolute;
+    position: absolute;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover, auto;
     width: 100%;
+    background-repeat: no-repeat;
 }
 
 body{
@@ -62,9 +58,7 @@ body{
 
 /* Designs the navbar*/
 .navbar {
-    background-color: transparent;
-    overflow: hidden;
-    position: relative;
+    position: absolute;
  }
 
 /* 
@@ -78,22 +72,34 @@ and makes the navbar slightly transparent.
     width: 100%;
 }
 
+/* About and Products Button */
+.menuButton
+{
+    position: absolute; 
+    top: 250px; 
+    color:#01b2f6; 
+    cursor:pointer;
+    font-size:3.0vh;
+}
+
+
 /*
  Page content
  */
 
+
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
     z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    top: 0; 
     left: 0;
-    background-color: rgb(145, 145, 145); /* light Grey*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    background-color: rgb(145, 145, 145); 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
 }
 
 /* The navigation menu links */
@@ -115,9 +121,8 @@ and makes the navbar slightly transparent.
     margin-left: 50px;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+/* Style page content */
 .content{
-    /* background-color: rgba(0, 0, 0); */
     padding: 5% 3%;
     text-align: center;
     font-family: impact;
@@ -125,10 +130,30 @@ and makes the navbar slightly transparent.
     color: #01b2f6;
 }
 
-/*Sets the colors of the text in .content.*/
+/*Sets the colors of the h2 text in content*/
 .content h2{
     color: white;
 }
+
+
+/*
+About section
+*/
+
+
+.about{
+    width: auto;
+    /* padding-bottom: 45%; */
+}
+
+.about-img{
+    width: 100%;
+}
+
+/*
+Product Attributes
+*/
+
 
 /* */
 .dropbtn {
@@ -185,20 +210,11 @@ and makes the navbar slightly transparent.
     font-style: italic;
 }
 
-.about{
-    width: auto;
-    /* padding-bottom: 45%; */
-}
-
-.about-img{
-    width: 100%;
-}
-
 .product-description{
     font-size: 2vmin;
 }
 
-/*slideshow */
+/* Slideshow */
 * {box-sizing: border-box}
 .mySlides {display: none}
 img {vertical-align: middle;}
@@ -208,10 +224,10 @@ img {vertical-align: middle;}
     max-width: 1000px;
     position: relative;
     margin: auto;
-  }
+}
   
-  /* Next & previous buttons */
-  .prev, .next {
+/* Next & previous buttons */
+.prev, .next {
     cursor: pointer;
     width: auto;
     padding: 16px;
@@ -221,171 +237,149 @@ img {vertical-align: middle;}
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
+}
+
+/* Position the "next button" to the right */
+.next {
     right: 0;
     border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
+}
+
+/* Caption text */
+.text {
     color: #f2f2f2;
     font-size: 15px;
     padding: 8px 12px;
     bottom: 8px;
     width: 100%;
     text-align: center;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
-  }
-  
-  /* Fading animation */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
+}
 
-
-  .menuButton
-  {
-    position: absolute; 
-    top: 250px; 
-    color:#01b2f6; 
-    cursor:pointer;
-    font-size:3.0vh;
-  }
-
-  #marquee
-  {
+#marquee
+{
     font-size: 3.0vh; 
     color:#01b2f6;
-  }
+}
 
-  .prevButtons
-  {
+.prevButtons
+{
     position: absolute;
     left: 10%;
-  }
+}
 
-  .nextButtons
-  {
-      position: absolute;
-      right: 10%;
-  }
-    
-    /* Smartphones (portrait) ----------- */
-    @media only screen and (max-width : 414px) {
-    /* Styles */
-    .menuButton
-    {
-      position: absolute; 
-      top: 23%; 
-      color:#01b2f6; 
-      cursor:pointer;
-    }
-    .product-description{
-        font-size:4vmin;
-    }
-    .productphoto
-    {
-        width:50%;
-    }
-    }
-    
-    /* iPads (portrait) ----------- */
-    @media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
-    /* Styles */
-    .menuButton
-    {
-      position: absolute; 
-      top: 30%; 
-      color:#01b2f6; 
-      cursor:pointer;
-    }
+.nextButtons
+{
+    position: absolute;
+    right: 10%;
+}
 
+
+/* 
+Scaling for non desktop devices 
+*/
+
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 414px) {
+/* Styles */
+.menuButton
+{
+    position: absolute; 
+    top: 23%; 
+    color:#01b2f6; 
+    cursor:pointer;
+}
+.product-description{
+    font-size:4vmin;
+}
+.productphoto
+{
+    width:50%;
+}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+/* Styles */
+.menuButton
+{
+    position: absolute; 
+    top: 30%; 
+    color:#01b2f6; 
+    cursor:pointer;
+}
+
+.productphoto
+{
+    width:60%;
+}
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.menuButton
+{
+    position: absolute; 
+    top: 50%; 
+    color:#01b2f6; 
+    cursor:pointer;
+}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+/* Styles */
+.menuButton
+{
+    position: absolute; 
+    top: 60%; 
+    color:#01b2f6; 
+    cursor:pointer;
+}
+
+.productphoto{
+    width:30%;
+}
+
+}
+
+/* iPhone X ----*/
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3) { 
+    .menuButton{
+        top: 21%;
+    }
+    .lqd-Header-Logo{
+        background-size: 10%, auto;
+        background-position-x: left; 
+        background-position-y: top;
+        padding-bottom: 45%;
+        position: relative;
+        width: 100%;
+    }
     .productphoto
     {
         width:60%;
     }
-    }
-    /**********
-    iPad 3
-    **********/
-    @media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-    /* Styles */
-    .menuButton
-    {
-      position: absolute; 
-      top: 50%; 
-      color:#01b2f6; 
-      cursor:pointer;
-    }
-    }
-    
-    /* Desktops and laptops ----------- */
-    @media only screen  and (min-width : 1224px) {
-    /* Styles */
-    .menuButton
-    {
-      position: absolute; 
-      top: 60%; 
-      color:#01b2f6; 
-      cursor:pointer;
-    }
+}
 
-    .productphoto{
-        width:30%;
-    }
-
-    }
-    
-    /* iPhone X ----*/
-    @media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) { 
-        .menuButton{
-            top: 21%;
-        }
-        .lqd-Header-Logo{
-            background-size: 10%, auto;
-            background-position-x: left; 
-            background-position-y: top;
-            padding-bottom: 45%;
-            position: relative;
-            width: 100%;
-        }
-        .productphoto
-        {
-            width:60%;
-        }
-    }
-
-      /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
