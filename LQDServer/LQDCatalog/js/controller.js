@@ -55,5 +55,5 @@ function removeProduct(productID){
  * Passes the user details from the view to the model.
  */
 function checkout(){
-    passToCheckout();
+    passToCheckout(getCustomerDetails(), getAddress());
 }

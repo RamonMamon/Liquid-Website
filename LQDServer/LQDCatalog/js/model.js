@@ -36,7 +36,9 @@ async function removeFromCart(productID){
  * Returns an array of items from the lqd catalog on moltin.
  */
 function getCart(){
-    return Moltin.Cart().Items();
+    return Moltin.Cart().Items().then((cart) => {
+        console.log(cart);
+    });
 }
 
 /**

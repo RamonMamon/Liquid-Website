@@ -64,10 +64,9 @@ function currentSlide(n) {
 
 function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("mySlides");
+    var slides = $(".mySlides");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
-    console.log(slides.length);
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
@@ -84,8 +83,8 @@ function showSlides(n) {
  * @param {Object} productImages Contains the images of each product from the catalog.
  */
 function updateProducts(productList, productImages){
-    var newMySlides = $('#slideshowcontainer');
-    var mySlides = $('#slideshowcontainer');
+    var newMySlides = $('#products');
+    var mySlides = $('#products');
     console.log("Retrieve Products", productList.length);
     console.log("File Image", productImages);
 
@@ -120,7 +119,12 @@ function updateProducts(productList, productImages){
  * @param {Object} cart Contains all the items in the cart.
  */
 function updateCart(cart){
-
+    var cartItems = $('#cartItems');
+    var cartData = cart.data;
+    for(var i = 0; i < cart.length; i++){
+        var product = cartData[i];
+        
+    }
 }
 
 /**
