@@ -104,6 +104,7 @@ function updateProducts(productList, productImages){
         var $div = $("<div>", {"id": product.id, "class": "mySlides"});
         $div.append($("<div>").html($("<h2 />").addClass("productName").html(product.name)));
         $div.append($("<img >").addClass("productphoto").attr("src",productImages[i].link.href));
+        $div.append($('<br>'));
         
         $div.append($nicotineDropdown);
         $div.append($("<button>").addClass("button").html("Add to Cart"));

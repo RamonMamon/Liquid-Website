@@ -270,11 +270,6 @@ img {vertical-align: middle;}
   }
 
 
-  .productphoto
-  {
-      width:40%;
-  }
-
   .menuButton
   {
     position: absolute; 
@@ -317,7 +312,7 @@ img {vertical-align: middle;}
     }
     .productphoto
     {
-        width:60%;
+        width:50%;
     }
     }
     
@@ -361,6 +356,11 @@ img {vertical-align: middle;}
       color:#01b2f6; 
       cursor:pointer;
     }
+
+    .productphoto{
+        width:30%;
+    }
+
     }
     
     /* iPhone X ----*/
