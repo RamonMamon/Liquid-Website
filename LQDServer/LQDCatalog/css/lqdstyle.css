@@ -61,6 +61,11 @@ body{
     position: absolute;
  }
 
+ /*set image size in cart*/
+.cartImage{
+    width: 25%;
+}
+
 /* 
 The sticky class is added to the navbar with JS when it reaches its scroll position 
 and makes the navbar slightly transparent.

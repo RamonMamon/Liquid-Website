@@ -77,7 +77,12 @@ function updateCart(cart){
     var cartData = cart.data;
     for(var i = 0; i < cart.length; i++){
         var product = cartData[i];
-        
+        var $newItem = $("<div>",{"id":cart[i].id,"class":"inCart"});
+        var itemPhoto = $("<img>").addClass("cartImage").attr("src",cart[i].productImages);
+
+        $newItem.append($("<p>").addClass("cartLabel").html(itemPhoto + cart[i].name));
+
+        cartItems.append($newItem);
     }
 }
 
