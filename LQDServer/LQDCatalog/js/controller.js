@@ -28,6 +28,7 @@ function initializeNavBarButtons(){
 }
 
 var slideIndex = 0; // Current index of the slide.
+var selectedID;
 
 /**
  * Meant to be called once the nicotine strength is changed. 
@@ -63,11 +64,20 @@ function viewSlide(increment) {
         $("#catalog").toggleClass("hideSlide", true);
         $("#productHolder").toggleClass("hideSlide",false)
         updateProducts( _3mgProducts, _6mgProducts, productImages, slideIndex-1);
+        $(".dropbtn").html("Nicotine Strength"); // Resets the button.
     }
 }
 
-function addProductToCart(productID){
-    addToCart(productID).then(function(){
+$(document).ready(function(){
+    $(".3mgDrop").on('click', function(event){
+        selectedID = event.target.id;
+    })
+    $(".6mgDrop").on('click', function(event){
+        selectedID = event.target.id;
+    })
+});
+function addProductToCart(){
+    addToCart(selectedID).then(function(){
         updateCart(getCart());
     });
 }

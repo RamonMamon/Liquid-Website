@@ -102,4 +102,9 @@ function getAddress(){
 
 }
 
+function selectNicotineStrength(s)
+{
+    var nicStrength = s + " mg";
+    $(".dropbtn").html(nicStrength);
+}
 

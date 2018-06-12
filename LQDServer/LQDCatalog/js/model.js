@@ -24,15 +24,23 @@ async function retrieveProductData(){
 }
 
 async function addToCart(productID){
-    Moltin.Cart().addProduct(productID).then((item) => {
-        alert(item.name + " has been added to your cart.");
+    Moltin.Cart().AddProduct(productID).then((item) => {
+        console.log("Item has been added.")
+        console.log(item);
     });
 }
 
 async function removeFromCart(productID){
-    Moltin.Cart().removeProduct(productID).then((item) => {
+    Moltin.Cart().RemoveProduct(productID).then((item) => {
         alert(item.name + " has been removed from your cart.");
     });
+}
+
+async function clearCart(){
+    Moltin.Cart().Delete().then((items) =>{
+        alert("Cart has been cleared.");
+        console.log(items);
+    })
 }
 
 /**
