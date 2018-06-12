@@ -1,6 +1,5 @@
 ﻿var offset;
 var navbar;
-var slideIndex = 1;
 
 /**
  * When the user scrolls the page past the navbars offset, the navbar will
@@ -14,9 +13,9 @@ window.onscroll = function () {
     } 
 };
 
-/*
-Sets a new offset whenever the window is resized.
-*/
+/** 
+ * Sets a new offset whenever the window is resized.
+ */
 $(window).resize(function(){
     offset = navbar.offset();
 });
@@ -27,7 +26,6 @@ $(window).resize(function(){
 function initializeView(){
     navbar = $("#navbar");
     offset = navbar.offset(); //Sets the current position of the navbar. 
-    showSlides(slideIndex);
 }
 
 function moveToAbout(){
@@ -54,65 +52,20 @@ function closeNav() {
     $("#content").css("margin-left") = "0";
 }
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = $(".mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slides[slideIndex-1].style.display = "block";  
-}
-
-  /**
+/**
  * PRODUCTS FUNCTIONALITY
  */
 
-/**
- * Takes an object list containing the data of the products including the images that correspond to each product.
- * @param {Object} productList Contains each product from the catalog.
- * @param {Object} productImages Contains the images of each product from the catalog.
- */
-function updateProducts(productList, productImages){
-    var newMySlides = $('#products');
-    var mySlides = $('#products');
-    console.log("Retrieve Products", productList.length);
-    console.log("File Image", productImages);
 
-    for(var i = 0; i <= productList.length-1;i++)
-    {
-        var product = productList[i];
-
-        var $nicotineDropdown = $("<div>",{"class":"dropdown","id": dropDownContentID});
-        $nicotineDropdown.append($("<button>").addClass("dropbtn").html("Nicotine Strength"));
-        var dropDownContentID = product.id + "strength";
-
-        var $dropdownContent = $("<div>",{ "class": "dropdown-content"});
-        $dropdownContent.append($("<a>").html("3 mg"));
-        $dropdownContent.append($("<a>").html("6 mg"));
-        $nicotineDropdown.append($dropdownContent);
-
-        var $div = $("<div>", {"id": product.id, "class": "mySlides"});
-        $div.append($("<div>").html($("<h2 />").addClass("productName").html(product.name)));
-        $div.append($("<img >").addClass("productphoto").attr("src",productImages[i].link.href));
-        $div.append($('<br>'));
-        
-        $div.append($nicotineDropdown);
-        $div.append($("<button>").addClass("button").html("Add to Cart"));
-        $div.append($("<p>").html(product.description));
-        $div.append($("<div>").addClass("numbertext").html( (i + 1) + "/" + productList.length));
-        
-        newMySlides.append($div);
-    }
+function updateProducts(_3mgProducts, _6mgProducts, productImages, index){
+    $(".productName").html(_3mgProducts[index].name);
+    $(".productphoto").attr("src",productImages[index].link.href);
+    $(".3mgDrop").attr("id", _3mgProducts[index].id);
+    $(".6mgDrop").attr("id", _6mgProducts[index].id);
+    $(".product-description").html(_3mgProducts[index].description);
+    var numText = (index+1) + "/" + _3mgProducts.length;
+    $(".number-text").html(numText);
 }
 
 /**

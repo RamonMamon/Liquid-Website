@@ -4,20 +4,23 @@
 
 const Moltin = moltin.gateway({client_id: '99WMj74mT9o9bRHQqBswfFMyDrC8GqxHbX2ytpOsS7'}); //Authenticates Client with API
 
-var products; // Contains all the data of each product
+var _3mgProducts; // Contains all the 3mg data of each product
+var _6mgProducts; // Contains all the 6mg data of each product
 var productImages; // Contains the images for each product
 
  /**
   * Function that retrieves the data of the items with the specified Nicotine strength from the catalog.
   * @param {Integer} nicStrength is the specified strength of the nicotine.
   */
-async function retrieveProductData(nicStrength){
-    var nicStrength = (nicStrength == 6) ? nicStrength = '*6mg' : nicStrength = '*3mg'; //Nicotine strength
+async function retrieveProductData(){
+    var productData_3mg = await Moltin.Products.Filter({like: {sku: '*3mg'}}).With(['main_image']).All();//This will wait for the promised product list to be returned.
+    var productData_6mg = await Moltin.Products.Filter({like: {sku: '*6mg'}}).All();
 
-    const productData = await Moltin.Products.Filter({like: {sku: nicStrength}}).With(['main_image']).All();//This will wait for the promised product list to be returned.
-
-    productImages = productData.included.main_images; // Gets the images of each Product
-    products = productData.data; // Stores the data of each product.
+    // Gets the images of each Product
+    productImages = productData_3mg.included.main_images; 
+    // Stores the data of each product based off the nicotine strength.
+    _3mgProducts = productData_3mg.data; 
+    _6mgProducts = productData_6mg.data;
 }
 
 async function addToCart(productID){

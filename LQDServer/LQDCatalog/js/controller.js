@@ -8,8 +8,7 @@ var controller = (function(){
     async function init(){
         initializeView();
         initializeNavBarButtons();
-        var nicStrength = 6;
-        initializeProducts(nicStrength);
+        initializeProducts();
         updateCart(getCart()); //TODO
     }return {
         init: init
@@ -28,15 +27,43 @@ function initializeNavBarButtons(){
     });
 }
 
+var slideIndex = 0; // Current index of the slide.
+
 /**
  * Meant to be called once the nicotine strength is changed. 
  * Initializes the products in the products section once they have been retrieved from the server.
  * @param {int} nicStrength 
  */
-function initializeProducts(nicStrength){
-    retrieveProductData(nicStrength).then(function(){
-        updateProducts(products, productImages);// Waits for the product list to be retrieved before being called.
+function initializeProducts(){
+    retrieveProductData().then(function(){ 
+        // Waits for the product list to be retrieved before being called.
+        viewSlide(slideIndex); // Sets the catalog as the initial slide.
     });
+}
+
+/**
+ * Views the slide at the current index. If the index is at 0, the catalog 
+ * will be previewed instead.
+ * @param {Integer} increment The amount to increment the index
+ */
+function viewSlide(increment) {
+    slideIndex += increment;
+
+    var x = _3mgProducts.length;
+
+    if(slideIndex < 0) slideIndex = x;
+    else if (slideIndex > x) slideIndex = 0;
+
+    // Hides the catalog if the index is not 0.
+    if(slideIndex == 0){
+        $("#catalog").toggleClass("hideSlide", false) 
+        $("#productHolder").toggleClass("hideSlide",true)
+    }
+    else{
+        $("#catalog").toggleClass("hideSlide", true);
+        $("#productHolder").toggleClass("hideSlide",false)
+        updateProducts( _3mgProducts, _6mgProducts, productImages, slideIndex-1);
+    }
 }
 
 function addProductToCart(productID){

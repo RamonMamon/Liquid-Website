@@ -216,7 +216,7 @@ Product Attributes
 
 /* Slideshow */
 * {box-sizing: border-box}
-.mySlides {display: none}
+.hideSlide {display: none}
 img {vertical-align: middle;}
 
 /* Slideshow container */
@@ -297,7 +297,7 @@ Scaling for non desktop devices
 .menuButton
 {
     position: absolute; 
-    top: 20%; 
+    top: 19%; 
     color:#01b2f6; 
     cursor:pointer;
 }

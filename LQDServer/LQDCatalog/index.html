@@ -50,20 +50,39 @@
     <!-- The About section of the page. -->
     <div class="content" id="about">
         <h1 style="text-align: center; font-size:3.0vmin;">About us</h1>
-        <img src="./images/BLACK BG/About.png" style ="width: 90%;"></img>
+        <img src="./images/BLACK BG/About.png" style ="width: 80%;"></img>
     </div>
 
     <!-- Contains all of the slideshow functionality of the products section.  -->
     <div class="content" id="slideshowcontainer">
         <!-- Contains all of the product elements. -->
         <div id="products">
-            <div class="mySlides">
-                <img src="./images/BLACK BG/Products.png" style = "width:85%;">
+            <div id = "catalog">
+                <img src="./images/BLACK BG/Products.png" style = "width:70%;">
+            </div>
+
+            <div id = "productHolder" class="hideSlide">
+                <div>
+                    <h2 class="productName">Tangerine Dream</h2>
+                </div>
+                <img class="productphoto" src="">
+                <br>
+                <div class="dropdown">
+                    <button class="dropbtn" id = "selected">Nicotine Strength</button>
+                    <div class="dropdown-content">
+                        <a class = "3mgDrop">3 mg</a>
+                        <a class = "6mgDrop">6 mg</a>
+                    </div>
+                </div>
+                <button class="button">Add To Cart</button>
+                <p class="product-description"></p>
+                <div class="number-text"></div>
             </div>   
+
         </div>
         <!-- Navigation Buttons. -->
-        <a class="prev" onclick="plusSlides(-1)" style="position: absolute; left: 100px;">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)" style="position: absolute; right: 100px;">&#10095;</a>     
+        <a class="prev" onclick="viewSlide(-1)" style="position: absolute; left: 100px;">&#10094;</a>
+        <a class="next" onclick="viewSlide(1)" style="position: absolute; right: 100px;">&#10095;</a>     
     </div>
 
    
