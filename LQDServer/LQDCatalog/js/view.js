@@ -74,13 +74,16 @@ function updateProducts(_3mgProducts, _6mgProducts, productImages, index){
  */
 function updateCart(cart){
     var cartItems = $('#cartItems');
+    console.log(cart)
     var cartData = cart.data;
-    for(var i = 0; i < cart.length; i++){
+    
+    for(var i = 0; i < cartData.length; i++){
         var product = cartData[i];
-        var $newItem = $("<div>",{"id":cart[i].id,"class":"inCart"});
-        var itemPhoto = $("<img>").addClass("cartImage").attr("src",cart[i].productImages);
+        // Create an attribute, productId to use as a placeholder for the product id.
+        var $newItem = $("<div>",{"id":cartData[i].id,"class":"inCart"});
+        var itemPhoto = $("<img>").addClass("cartImage").attr("src",cartData[i].productImages);
 
-        $newItem.append($("<p>").addClass("cartLabel").html(itemPhoto + cart[i].name));
+        $newItem.append($("<p>").addClass("cartLabel").html(itemPhoto + cartData[i].name));
 
         cartItems.append($newItem);
     }
@@ -107,9 +110,8 @@ function getAddress(){
 
 }
 
-function selectNicotineStrength(s)
-{
-    var nicStrength = s + " mg";
+function selectNicotineStrength(strength){
+    var nicStrength = strength + " mg";
     $(".dropbtn").html(nicStrength);
 }
 

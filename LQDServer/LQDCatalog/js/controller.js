@@ -3,17 +3,30 @@
  * This is where you will pass feedback from view to the model and vice versa.
  * This is also where you initialize the Single Page application.
  */
-
 var controller = (function(){
     async function init(){
         initializeView();
         initializeNavBarButtons();
         initializeProducts();
-        updateCart(getCart()); //TODO
+        updateCart(await getCart()); //TODO
     }return {
         init: init
     }
 })();
+
+/**
+ * These are the event handlers for most of the buttons on the client.
+ */
+$(document).ready(function(){
+    $(".3mgDrop").on('click', function(event){
+        selectedID = event.target.id;
+    });
+    $(".6mgDrop").on('click', function(event){
+        selectedID = event.target.id;
+    });
+
+    //Make an event handler for the remove product buttons.
+});
 
 /**
  * This function will initialize the Navigation buttons found at the header of the page.
@@ -54,7 +67,7 @@ function viewSlide(increment) {
 
     if(slideIndex < 0) slideIndex = x;
     else if (slideIndex > x) slideIndex = 0;
-
+    
     // Hides the catalog if the index is not 0.
     if(slideIndex == 0){
         $("#catalog").toggleClass("hideSlide", false) 
@@ -65,26 +78,26 @@ function viewSlide(increment) {
         $("#productHolder").toggleClass("hideSlide",false)
         updateProducts( _3mgProducts, _6mgProducts, productImages, slideIndex-1);
         $(".dropbtn").html("Nicotine Strength"); // Resets the button.
+        selectedID = null; // Resets the selected id whenever the slide is changed.
     }
 }
 
-$(document).ready(function(){
-    $(".3mgDrop").on('click', function(event){
-        selectedID = event.target.id;
-    })
-    $(".6mgDrop").on('click', function(event){
-        selectedID = event.target.id;
-    })
-});
 function addProductToCart(){
-    addToCart(selectedID).then(function(){
-        updateCart(getCart());
+    if(selectedID == null){
+        alert("Please specify a nicotine strength.");
+        return;
+    }
+    addToCart(selectedID).then(async function(){
+        updateCart(await getCart());
     });
+    //Can potentially reduce the lines of code like this
+    //updateCart(addToCart(selectedID))
+    //This will only work if I properly set up the add to cart function.
 }
 
 function removeProduct(productID){
-    removeFromCart(productID).then(function(){
-        updateCart(getCart());
+    removeFromCart(productID).then(async function(){
+        updateCart(await getCart());
     });
 }
 

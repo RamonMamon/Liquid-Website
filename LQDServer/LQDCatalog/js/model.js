@@ -24,21 +24,20 @@ async function retrieveProductData(){
 }
 
 async function addToCart(productID){
-    Moltin.Cart().AddProduct(productID).then((item) => {
-        console.log("Item has been added.")
-        console.log(item);
+    Moltin.Cart().AddProduct(productID, 1).then((item) => {
+        alert("Product has been added to your cart.")
     });
 }
 
 async function removeFromCart(productID){
-    Moltin.Cart().RemoveProduct(productID).then((item) => {
-        alert(item.name + " has been removed from your cart.");
+    Moltin.Cart().RemoveProduct(productID, 1).then((item) => {
+        alert("Product has been removed from your cart.");
     });
 }
 
 async function clearCart(){
     Moltin.Cart().Delete().then((items) =>{
-        alert("Cart has been cleared.");
+        alert("Your cart has been cleared.");
         console.log(items);
     })
 }
@@ -47,13 +46,11 @@ async function clearCart(){
  * Returns an array of items from the lqd catalog on moltin.
  */
 function getCart(){
-    return Moltin.Cart().Items().then((cart) => {
-        console.log(cart);
-    });
+    return Moltin.Cart().Items();
 }
 
 /**
- * 
+ * Passes the users information to the checkout.
  * @param {Object} customer 
  * @param {Object} address 
  */
