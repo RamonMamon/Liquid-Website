@@ -74,10 +74,10 @@ function updateProducts(_3mgProducts, _6mgProducts, productImages, index){
  */
 function updateCart(cart){
     var cartItems = $('#cartItems');
-    console.log(cart);
     console.log(cart.data);
     var cartData = cart.data;
     
+    cartItems.html(""); // Resets the cart
     for(var i = 0; i < cartData.length; i++){
         var product = cartData[i];
         var link = cartData[i].image.href
@@ -89,11 +89,12 @@ function updateCart(cart){
         itemdescription.append(itemdIMG);
 
         $newItem.append(itemdescription);
-
         cartItems.append($newItem);
+        
         console.log(product.id);
         console.log(strength);
     }
+    
 }
 
 /**

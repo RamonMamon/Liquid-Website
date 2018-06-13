@@ -10,7 +10,6 @@
 }
 
 
-
 .lqd-Header-Logo{
     background-attachment: fixed;
     background-position: center;
@@ -232,7 +231,7 @@ img {vertical-align: middle;}
 }
   
 /* Next & previous buttons */
-.prev, .next {
+.prev{
     cursor: pointer;
     width: auto;
     padding: 16px;
@@ -242,13 +241,25 @@ img {vertical-align: middle;}
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
+    top: 220%;
+    left: 90px;
+}
+
+.next {
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    top: 220%;
+    right: 90px;
 }
 
 /* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
@@ -313,6 +324,17 @@ Scaling for non desktop devices
 {
     width:50%;
 }
+
+.prev{
+    top: 75%;
+    left: 1px;
+}
+
+.next{
+    top: 75%;
+    right: 1px;
+}
+
 }
 
 /* iPads (portrait) ----------- */
@@ -330,6 +352,15 @@ Scaling for non desktop devices
 {
     width:60%;
 }
+
+.prev{
+    top: 100%;   
+}
+
+.next{
+    top: 100%;  
+}
+
 }
 /**********
 iPad 3
@@ -343,6 +374,16 @@ iPad 3
     color:#01b2f6; 
     cursor:pointer;
 }
+
+.prev{
+    top: 100%;   
+}
+
+.next{
+    top: 100%;  
+}
+
+
 }
 
 /* Desktops and laptops ----------- */

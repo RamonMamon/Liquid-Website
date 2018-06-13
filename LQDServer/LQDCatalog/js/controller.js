@@ -88,6 +88,7 @@ function addProductToCart(){
         return;
     }
     addToCart(selectedID).then(async function(){
+        alert("Product has been added to your cart.")
         updateCart(await getCart());
     });
     //Can potentially reduce the lines of code like this
@@ -97,8 +98,16 @@ function addProductToCart(){
 
 function removeProduct(productID){
     removeFromCart(productID).then(async function(){
+        alert("Product has been removed from your cart.");
         updateCart(await getCart());
     });
+}
+
+function clearCart(){
+    clearProducts().then(async function(){
+        alert("Your cart has been cleared.");
+        updateCart(await getCart());
+    })
 }
 
 /**

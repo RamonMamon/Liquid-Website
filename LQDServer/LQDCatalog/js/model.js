@@ -24,29 +24,25 @@ async function retrieveProductData(){
 }
 
 async function addToCart(productID){
-    Moltin.Cart().AddProduct(productID, 1).then((item) => {
-        alert("Product has been added to your cart.")
-    });
+    Moltin.Cart().AddProduct(productID, 1);
 }
 
 async function removeFromCart(productID){
-    Moltin.Cart().RemoveProduct(productID, 1).then((item) => {
-        alert("Product has been removed from your cart.");
-    });
+    Moltin.Cart().RemoveProduct(productID, 1);
 }
 
-async function clearCart(){
-    Moltin.Cart().Delete().then((items) =>{
-        alert("Your cart has been cleared.");
-        console.log(items);
-    })
+async function clearProducts(){
+    Moltin.Cart().Delete();
 }
 
 /**
  * Returns an array of items from the lqd catalog on moltin.
  */
 function getCart(){
-    return Moltin.Cart().Items();
+    return Moltin.Cart().Items().then((cart) =>{
+        console.log(cart);
+        return cart;
+    });
 }
 
 /**
