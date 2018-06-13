@@ -74,18 +74,25 @@ function updateProducts(_3mgProducts, _6mgProducts, productImages, index){
  */
 function updateCart(cart){
     var cartItems = $('#cartItems');
-    console.log(cart)
+    console.log(cart);
+    console.log(cart.data);
     var cartData = cart.data;
     
     for(var i = 0; i < cartData.length; i++){
         var product = cartData[i];
+        var link = cartData[i].image.href
+        var strength = $('#selected').html();
         // Create an attribute, productId to use as a placeholder for the product id.
-        var $newItem = $("<div>",{"id":cartData[i].id,"class":"inCart"});
-        var itemPhoto = $("<img>").addClass("cartImage").attr("src",cartData[i].productImages);
+        var $newItem = $("<div>",{"id":product.id,"class":"inCart"});
+        var itemdIMG =$("<img>").addClass("cartImage").attr("src",link);
+        var itemdescription = $("<p>").html(strength + " , " + product.name);
+        itemdescription.append(itemdIMG);
 
-        $newItem.append($("<p>").addClass("cartLabel").html(itemPhoto + cartData[i].name));
+        $newItem.append(itemdescription);
 
         cartItems.append($newItem);
+        console.log(product.id);
+        console.log(strength);
     }
 }
 
