@@ -45,7 +45,7 @@
     </div>
     <div style="position: absolute; bottom: 10px;">
         <button class="button" onclick = "clearCart()">Clear</button>
-        <button class="button">Checkout</button>
+        <button class="button" id = "checkout">Checkout</button>
     </div>
 </div>
 
@@ -93,33 +93,38 @@
 </div>
 
 <div class="billinginformation" align="left">
-    <form >
-                    
-        Full Name:<br>
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
+    <form class = "billinginformation-content">
+        <div class = "checkoutHeader checkouttext">
+                <span class="close">&times;</span>
+            <h2 >Billing Information</h2>
+            
+        </div>
+        
+        <label for = "firstName lastName" class = "checkouttext">Full Name:</label>
+        <br>
+        <input type="text" id ="firstName" placeholder="First Name" >
+        <input type="text" id ="lastName" placeholder="Last Name" >
         <br>
 
-        Email:<br>
-        <input type="text" placeholder="Email">
+        <label for = "email" class = "checkouttext">Email: </label>
+        <br>
+        <input type="text" placeholder="Email" id = "email">
         <br>
     
-        <label for="bankAccount">Billing Address</label> 
+        <label for="address1 address2 city state zipcode" class = "checkouttext">Billing Address</label> 
         <br>
-        <input type="text" placeholder="Street Address">
+        <input type="text" id = "address1" placeholder="Street Address" >
         <br>
-        <input type="text" placeholder="Street Address Line 2">
+        <input type="text" id = "address2" placeholder="Street Address Line 2">
         <br>
-        <input type="text" placeholder="City">
-        <input type="text" placeholder="State / Province">
+        <input type="text" id = "city" placeholder="City">
+        <input type="text" id = "state" placeholder="State / Province">
         <br>
-        <input type="text" placeholder="Postal Code / Zip Code">
+        <input type="text" id ="zipcode" placeholder="Postal Code / Zip Code">
         <br>
-        <input type="submit" value="Confirm Purchase">
+        <input type="submit" id = "confirmbtn" value="Confirm Purchase">
     </form>
 </div>
-<iframe src ="./LQDCheckout/checkout.html">
-</iframe>
 
 <script>
     controller.init();

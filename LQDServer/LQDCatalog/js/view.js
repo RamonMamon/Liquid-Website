@@ -43,13 +43,13 @@ function moveToProducts(){
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
     $("#mySidenav").width("250px");
-    $("#content").css("margin-left") = "250px";
+    $("#content").css("margin-left","250px");
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
     $("#mySidenav").width("0px");
-    $("#content").css("margin-left") = "0";
+    $("#content").css("margin-left", "0");
 }
 
 
@@ -122,4 +122,6 @@ function selectNicotineStrength(strength){
     var nicStrength = strength + " mg";
     $(".dropbtn").html(nicStrength);
 }
+
+
 

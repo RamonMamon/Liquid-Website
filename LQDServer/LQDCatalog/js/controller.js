@@ -6,7 +6,6 @@
 var controller = (function(){
     async function init(){
         initializeView();
-        initializeNavBarButtons();
         initializeProducts();
         updateCart(await getCart()); //TODO
     }return {
@@ -25,20 +24,39 @@ $(document).ready(function(){
         selectedID = event.target.id;
     });
 
+    var modal = $('.billinginformation');
+
+    // Get the button that opens the modal
+    var btn = $('#checkout');
+
+    // The Close button
+    var close = $(".close");
+
+    // When the user clicks on the button, open the modal 
+    btn.click(function() {
+        modal.show()
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    close.click(function() {
+        modal.removeAttr("style").hide();
+    });
+
+    // When the user clicks anywhere outside of the modal while the modal is open, close it
+    $(window).click(function(event) {
+        if ($(event.target)[0] == modal[0]) {
+            modal.removeAttr("style").hide();
+        }
+    });
+
     //Make an event handler for the remove product buttons.
 });
 
+
 /**
- * This function will initialize the Navigation buttons found at the header of the page.
+ * Checkout form and modal.
  */
-function initializeNavBarButtons(){
-    $("#aboutNav").click(function(){ 
-        moveToAbout();
-    });
-    $("#productsNav").click(function(){ 
-        moveToProducts();
-    });
-}
+
 
 var slideIndex = 0; // Current index of the slide.
 var selectedID;
