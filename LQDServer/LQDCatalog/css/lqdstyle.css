@@ -401,6 +401,26 @@ Scaling for non desktop devices
     right: 1px;
 }
 
+body{
+    font-family: 'Anton', sans-serif;
+}
+
+.content{
+    font-family: 'Anton', sans-serif;
+}
+
+.dropbtn{
+    font-family: 'Anton', sans-serif;
+}
+
+.button{
+    font-family: 'Anton', sans-serif;
+}
+
+.checkouttext{
+    font-family: 'Anton', sans-serif;
+}
+
 }
 
 /* iPads (portrait) ----------- */
@@ -426,6 +446,27 @@ Scaling for non desktop devices
 .next{
     top: 100%;  
 }
+
+body{
+    font-family: 'Anton', sans-serif;
+}
+
+.content{
+    font-family: 'Anton', sans-serif;
+}
+
+.dropbtn{
+    font-family: 'Anton', sans-serif;
+}
+
+.button{
+    font-family: 'Anton', sans-serif;
+}
+
+.checkouttext{
+    font-family: 'Anton', sans-serif;
+}
+
 
 }
 /**********
