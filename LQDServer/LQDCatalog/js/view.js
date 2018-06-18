@@ -72,50 +72,52 @@ function updateProducts(_3mgProducts, _6mgProducts, productImages, index){
  * Updates the cart in the html file.
  * @param {Object} cart Contains all the items in the cart.
  */
-function updateCart(cart){
+function viewCart(cart){
     var cartItems = $('#cartItems');
-    console.log(cart.data);
     var cartData = cart.data;
     
     cartItems.html(""); // Resets the cart
     for(var i = 0; i < cartData.length; i++){
         var product = cartData[i];
-        var link = cartData[i].image.href
-        var strength = $('#selected').html();
-        // Create an attribute, productId to use as a placeholder for the product id.
+        var link = cartData[i].image.href;
+        // Sets the strength based off the sku.
+        var strength = (product.sku.indexOf("3mg") >= 0)? "3mg" : "6mg"; 
         var $newItem = $("<div>",{"id":product.id,"class":"inCart"});
         var itemdIMG =$("<img>").addClass("cartImage").attr("src",link);
-        var itemdescription = $("<p>").html(strength + " , " + product.name);
+        var itemdescription = $("<p>").html(strength + ", " + product.name);
         itemdescription.append(itemdIMG);
 
         $newItem.append(itemdescription);
         cartItems.append($newItem);
-        
-        console.log(product.id);
-        console.log(strength);
     }
     
 }
 
 /**
- * Creates checkout form on the HTML page.
- */
-function checkoutForm(){
-
-}
-
-/**
- * 
+ * Returns a customer object based off the details of the checkout form.
  */
 function getCustomerDetails(){
-    
+    var custName = $('#firstName').val().trim() + ' ' + $('#lastName').val().trim();
+    return {
+        email: $('#email').val(),
+        name: custName
+    };
 }
 
 /**
- * Shows a form for the user to fill in to retrieve the user details.
+ * Takes the customers Billing information from the form.
  */
 function getAddress(){
-
+    return {
+        first_name: $('#firstName').val(),
+        last_name: $('#lastName').val(),
+        line_1: $('#address1').val(),
+        line_2: $('#address2').val(),
+        city: $('#city').val(),
+        county: $('#state').val(),
+        postcode: $('#zipcode').val(),
+        country: 'Philippines'
+      };
 }
 
 function selectNicotineStrength(strength){

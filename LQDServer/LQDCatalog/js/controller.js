@@ -7,7 +7,7 @@ var controller = (function(){
     async function init(){
         initializeView();
         initializeProducts();
-        updateCart(await getCart()); //TODO
+        updateCart(); 
     }return {
         init: init
     }
@@ -34,6 +34,10 @@ $(document).ready(function(){
 
     // When the user clicks on the button, open the modal 
     btn.click(function() {
+        if(userCart.data.length == 0){
+            alert("Cannot checkout with an empty cart.");
+            return;
+        }
         modal.show()
     });
 
@@ -49,6 +53,14 @@ $(document).ready(function(){
         }
     });
 
+    $('#confirmbtn').click(function(event){
+        /*
+        Work on Error handling for the form.
+         */
+        checkout();
+        event.preventDefault();
+    })
+
     //Make an event handler for the remove product buttons.
 });
 
@@ -60,6 +72,7 @@ $(document).ready(function(){
 
 var slideIndex = 0; // Current index of the slide.
 var selectedID;
+var userCart;
 
 /**
  * Meant to be called once the nicotine strength is changed. 
@@ -105,9 +118,9 @@ function addProductToCart(){
         alert("Please specify a nicotine strength.");
         return;
     }
-    addToCart(selectedID).then(async function(){
+    addToCart(selectedID).then(function(){
+        updateCart();
         alert("Product has been added to your cart.")
-        updateCart(await getCart());
     });
     //Can potentially reduce the lines of code like this
     //updateCart(addToCart(selectedID))
@@ -115,22 +128,30 @@ function addProductToCart(){
 }
 
 function removeProduct(productID){
-    removeFromCart(productID).then(async function(){
+    removeFromCart(productID).then(function(){
+        updateCart();
         alert("Product has been removed from your cart.");
-        updateCart(await getCart());
     });
 }
 
 function clearCart(){
-    clearProducts().then(async function(){
+    clearProducts().then(function(){
+        updateCart();
         alert("Your cart has been cleared.");
-        updateCart(await getCart());
     })
+}
+
+/**
+ * Updates the users cart, then views it on the html file.
+ */
+async function updateCart(){
+    userCart = await getCart();
+    viewCart(userCart);
 }
 
 /**
  * Passes the user details from the view to the model.
  */
-function checkout(){
-    passToCheckout(getCustomerDetails(), getAddress());
+async function checkout(){
+    await createOrder(getCustomerDetails(), getAddress());
 }

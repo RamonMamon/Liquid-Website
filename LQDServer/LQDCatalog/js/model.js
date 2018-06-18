@@ -10,7 +10,6 @@ var productImages; // Contains the images for each product
 
  /**
   * Function that retrieves the data of the items with the specified Nicotine strength from the catalog.
-  * @param {Integer} nicStrength is the specified strength of the nicotine.
   */
 async function retrieveProductData(){
     var productData_3mg = await Moltin.Products.Filter({like: {sku: '*3mg'}}).With(['main_image']).All();//This will wait for the promised product list to be returned.
@@ -24,15 +23,15 @@ async function retrieveProductData(){
 }
 
 async function addToCart(productID){
-    Moltin.Cart().AddProduct(productID, 1);
+    await Moltin.Cart().AddProduct(productID, 1);
 }
 
 async function removeFromCart(productID){
-    Moltin.Cart().RemoveProduct(productID, 1);
+    await Moltin.Cart().RemoveProduct(productID, 1);
 }
 
 async function clearProducts(){
-    Moltin.Cart().Delete();
+    await Moltin.Cart().Delete();
 }
 
 /**
@@ -46,11 +45,16 @@ function getCart(){
 }
 
 /**
- * Passes the users information to the checkout.
+ * Passes the users information to the checkout function and returns
+ * an order.
  * @param {Object} customer 
  * @param {Object} address 
  */
-function passToCheckout(customer, address){
+function createOrder(customer, address){
     //Get the address and customer details from the view and pass them onto the Checkout function.
-    //Moltin.Cart().Checkout(customer, address);
+    return Moltin.Cart().Checkout(customer, address).then((order) =>{
+        console.log(order);
+        alert("Your order has been placed");
+        return order;
+    });
 }
