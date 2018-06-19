@@ -87,8 +87,7 @@ function viewCart(cart){
         var itemdIMG =$("<img>").addClass("cartImage").attr("src",link);
         var itemdescription = $("<p>").addClass("cartLabel").html(strength + ", " + product.name);
         $newItem.append(itemdIMG);
-        var func = "removeProduct(" + product.id + ")";
-        itemdescription.append($("<a>").addClass("remove").attr("onclick",func).attr("href","javascript:void(0)").attr("style","width : 10px; padding: 10px;").html("&times"))
+        itemdescription.append($("<a>").addClass("remove").attr("href","javascript:void(0)").attr("style","width : 10px; padding: 10px;").html("&times"))
         var productQuantity = product.quantity;
         itemdescription.append($("<br>)"));
         itemdescription.append($("<p>").html("Quantity: " + product.quantity));

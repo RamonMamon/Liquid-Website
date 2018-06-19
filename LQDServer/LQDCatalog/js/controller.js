@@ -62,6 +62,11 @@ $(document).ready(function(){
     })
 
     //Make an event handler for the remove product buttons.
+
+    // Creates an event listener for all remove buttons inside the cart of
+    $("#cartItems").on('click','.remove' , function(){
+        removeProduct($(this).parent().parent().attr("id"));
+    });
 });
 
 
