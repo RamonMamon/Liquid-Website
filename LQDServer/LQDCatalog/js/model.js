@@ -27,7 +27,7 @@ async function addToCart(productID){
 }
 
 async function removeFromCart(productID){
-    await Moltin.Cart().RemoveProduct(productID, 1);
+    await Moltin.Cart().RemoveItem(productID, 1);
 }
 
 async function clearProducts(){

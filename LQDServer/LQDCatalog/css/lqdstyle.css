@@ -63,6 +63,16 @@ body{
  /*set image size in cart*/
 .cartImage{
     width: 25%;
+    float: left;
+}
+
+.cartLabel{
+    float: left;
+    font-size: 95%;
+}
+
+.remove{
+    float: right;
 }
 
 /* 

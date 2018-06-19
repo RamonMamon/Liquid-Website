@@ -82,14 +82,23 @@ function viewCart(cart){
         var link = cartData[i].image.href;
         // Sets the strength based off the sku.
         var strength = (product.sku.indexOf("3mg") >= 0)? "3mg" : "6mg"; 
+        var price = product.meta.display_price.with_tax.unit.formatted;
         var $newItem = $("<div>",{"id":product.id,"class":"inCart"});
         var itemdIMG =$("<img>").addClass("cartImage").attr("src",link);
-        var itemdescription = $("<p>").html(strength + ", " + product.name);
-        itemdescription.append(itemdIMG);
-
+        var itemdescription = $("<p>").addClass("cartLabel").html(strength + ", " + product.name);
+        $newItem.append(itemdIMG);
+        var func = "removeProduct(" + product.id + ")";
+        itemdescription.append($("<a>").addClass("remove").attr("onclick",func).attr("href","javascript:void(0)").attr("style","width : 10px; padding: 10px;").html("&times"))
+        var productQuantity = product.quantity;
+        itemdescription.append($("<br>)"));
+        itemdescription.append($("<p>").html("Quantity: " + product.quantity));
         $newItem.append(itemdescription);
         cartItems.append($newItem);
     }
+
+    
+    var total = cart.meta.display_price.with_tax.formatted;
+    $("#cartTotal").html("Total: " + total);
     
 }
 

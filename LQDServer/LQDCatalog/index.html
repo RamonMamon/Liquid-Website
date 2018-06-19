@@ -26,11 +26,6 @@
     <div id="lqd-Logo" class="lqd-Header-Logo"></div>
 </div>
 
-<div style="background-color: transparent;">
-        <h2 style="left: 20%;" onclick="moveToAbout()" class = "menuButton" >about</h2>
-        <h2 style="right: 20%;" onclick="moveToProducts()" class = "menuButton" >Products</h2>
-</div>
-
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  
     <a style="position: absolute; left: 1%; top: 1%;">My Cart</a>
@@ -44,10 +39,16 @@
         </div>
         -->
     </div>
+    <h2 id="cartTotal" style="position: absolute; bottom: 25px; float: left;">Total :</h2>
     <div style="position: absolute; bottom: 10px;">
         <button class="button" onclick = "clearCart()">Clear</button>
         <button class="button" id = "checkout">Checkout</button>
     </div>
+</div>
+
+<div style="background-color: transparent;">
+    <h2 style="left: 20%;" onclick="moveToAbout()" class = "menuButton" >about</h2>
+    <h2 style="right: 20%;" onclick="moveToProducts()" class = "menuButton" >Products</h2>
 </div>
 
 <div class="content" id="pageContent">
