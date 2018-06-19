@@ -58,3 +58,35 @@ function createOrder(customer, address){
         return order;
     });
 }
+
+function makePayment(order){
+​
+    const payment = {
+        gateway: 'manual',
+        method: 'authorize'
+    }
+    ​
+    Moltin.Orders.Payment(order.id, payment).then(() => {
+        var paymayaOrder = convertOrder(order);
+
+    })
+}
+
+/**
+ * Converts moltin order to an appropriate body request for the paymaya checkout API.
+ * @param {Object} order 
+ */
+function convertOrder(order){
+    var paymayaOrder = {
+        "totalAmount": order.meta.display_price.with_tax.currency,
+        "value": meta.display_price.with_tax.amount,
+    }
+}
+
+function sendOrder(order){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "https://pg-sandbox.paymaya.com/checkout/v1/checkouts", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(order));
+    var response = JSON.parse(xhttp.responseText);
+}

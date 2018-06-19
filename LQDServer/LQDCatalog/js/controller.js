@@ -158,5 +158,6 @@ async function updateCart(){
  * Passes the user details from the view to the model.
  */
 async function checkout(){
-    await createOrder(getCustomerDetails(), getAddress());
+    var order = await createOrder(getCustomerDetails(), getAddress());
+    
 }
