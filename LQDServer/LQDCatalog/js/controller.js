@@ -159,5 +159,5 @@ async function updateCart(){
  */
 async function checkout(){
     var order = await createOrder(getCustomerDetails(), getAddress());
-    
+    makePayment(order);
 }
